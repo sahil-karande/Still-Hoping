@@ -166,29 +166,6 @@
       color: var(--color-accent);
       letter-spacing: 0.5px;
     }
-    .music-btn {
-      background: none;
-      border: none;
-      color: var(--color-text-main);
-      cursor: pointer;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.3s, color 0.3s;
-      flex-shrink: 0;
-    }
-    .music-btn:hover {
-      background: rgba(255, 107, 157, 0.1);
-      color: var(--color-primary);
-    }
-    .music-btn svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-    }
 
     /* ── FLOATING NAVIGATION DOCK ── */
     .nav-dock {
@@ -1155,11 +1132,8 @@
     </div>
     <div class="music-info">
       <span class="music-title">Dil Na Jaaneya</span>
-      <span class="music-status" id="music-status">Paused</span>
+      <span class="music-status" id="music-status">Tap to play 🎵</span>
     </div>
-    <button class="music-btn" id="play-pause-btn" title="Play/Pause">
-      <svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z"/></svg>
-    </button>
   </div>
 
   <!-- Falling petals & sparkles canvas -->
@@ -2124,17 +2098,12 @@
 
     /* ── Background Music Player Logic ── */
     const localAudio = document.getElementById('local-audio');
-    const playPauseBtn = document.getElementById('play-pause-btn');
     const disc = document.getElementById('music-disc');
     const statusText = document.getElementById('music-status');
     
-    const playIcon = `<svg viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z"/></svg>`;
-    const pauseIcon = `<svg viewBox="0 0 24 24"><path d="M14,19H18V5H14M6,19H10V5H6V19Z"/></svg>`;
-
     let isPlaying = false;
     let useLocal = true; // Default to true since we have songs.mp3 locally
     let player = null;
-    let hasInteracted = false;
 
     // Check if local MP3 is available, fallback to YouTube if it fails or errors
     localAudio.addEventListener('error', () => {
@@ -2171,22 +2140,24 @@
           },
           'onStateChange': (event) => {
             if (event.data === YT.PlayerState.PLAYING) {
-              isPlaying = true;
-              playPauseBtn.innerHTML = pauseIcon;
-              disc.classList.add('playing');
-              statusText.innerText = "Playing...";
+              setPlayerPlaying();
             }
           }
         }
       });
     };
 
-    function togglePlay() {
-      if (isPlaying) {
-        pauseMusic();
-      } else {
-        playMusic();
-      }
+    function setPlayerPlaying() {
+      isPlaying = true;
+      disc.classList.add('playing');
+      statusText.innerText = "Playing...";
+      cleanInteractionListeners();
+    }
+
+    function setPlayerPaused(msg = "Tap to play 🎵") {
+      isPlaying = false;
+      disc.classList.remove('playing');
+      statusText.innerText = msg;
     }
 
     function playMusic() {
@@ -2194,72 +2165,36 @@
         const playPromise = localAudio.play();
         if (playPromise !== undefined) {
           playPromise.then(() => {
-            isPlaying = true;
-            playPauseBtn.innerHTML = pauseIcon;
-            disc.classList.add('playing');
-            statusText.innerText = "Playing...";
+            setPlayerPlaying();
           }).catch(err => {
             console.log("Local autoplay blocked or failed:", err);
-            // Sync UI to stopped state so disc doesn't spin silently
-            isPlaying = false;
-            disc.classList.remove('playing');
-            statusText.innerText = "Paused";
-            playPauseBtn.innerHTML = playIcon;
+            setPlayerPaused("Tap to play 🎵");
           });
         }
       } else if (player && typeof player.playVideo === 'function') {
         player.playVideo();
         isPlaying = true;
-        playPauseBtn.innerHTML = pauseIcon;
         disc.classList.add('playing');
         statusText.innerText = "Playing...";
+        cleanInteractionListeners();
       }
     }
-
-    function pauseMusic() {
-      isPlaying = false;
-      playPauseBtn.innerHTML = playIcon;
-      disc.classList.remove('playing');
-      statusText.innerText = "Paused";
-
-      if (useLocal) {
-        localAudio.pause();
-      } else if (player && typeof player.pauseVideo === 'function') {
-        player.pauseVideo();
-      }
-    }
-
-    // Bind Play/Pause button event
-    playPauseBtn.addEventListener('click', (e) => {
-      togglePlay();
-      e.stopPropagation();
-    });
 
     // Clean up window event listeners once user interacts and music starts
     function cleanInteractionListeners() {
       window.removeEventListener('click', handleFirstInteraction);
       window.removeEventListener('touchstart', handleFirstInteraction);
-      window.removeEventListener('scroll', handleFirstInteraction);
       window.removeEventListener('keydown', handleFirstInteraction);
     }
 
     // Sync player UI if native autoplay is allowed by the browser
     localAudio.addEventListener('play', () => {
-      isPlaying = true;
-      playPauseBtn.innerHTML = pauseIcon;
-      disc.classList.add('playing');
-      statusText.innerText = "Playing...";
-      if (!hasInteracted) {
-        hasInteracted = true;
-        cleanInteractionListeners();
-      }
+      setPlayerPlaying();
     });
 
     // Auto-play music on the first user interaction (bypasses browser autoplay policy)
     function handleFirstInteraction() {
-      if (!hasInteracted) {
-        hasInteracted = true;
-        cleanInteractionListeners();
+      if (!isPlaying) {
         playMusic();
       }
     }
@@ -2274,7 +2209,6 @@
     // Listeners for user interaction to kickstart playing if blocked
     window.addEventListener('click', handleFirstInteraction);
     window.addEventListener('touchstart', handleFirstInteraction);
-    window.addEventListener('scroll', handleFirstInteraction);
     window.addEventListener('keydown', handleFirstInteraction);
   </script>
 
