@@ -1162,8 +1162,8 @@
     <div class="love-modal-content">
       <div class="love-modal-close" id="close-modal-btn">✕</div>
       <p class="love-modal-text">
-        "I love you till my end.<br>
-        <span>please don't leave me ."</span>
+        I love you till my end<br>
+        <span>please don't leave me</span>
       </p>
       <div class="love-modal-heart">❤️</div>
     </div>
@@ -1600,43 +1600,21 @@
 
   <!-- FINAL -->
   <section class="final-section">
-    <div class="rose-container" id="final-rose-container">
-      <div class="svg-rose-wrapper">
-        <svg class="svg-rose" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <div class="heart-container" id="final-heart-container">
+      <div class="svg-heart-wrapper">
+        <svg class="svg-heart" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <radialGradient id="rose-grad-petals" cx="50%" cy="40%" r="50%">
+            <radialGradient id="heart-grad-petals" cx="50%" cy="40%" r="50%">
               <stop offset="0%" stop-color="#ff9ebb" />
               <stop offset="45%" stop-color="#ff4a7d" />
               <stop offset="90%" stop-color="#ab0e39" />
               <stop offset="100%" stop-color="#540217" />
             </radialGradient>
-            <linearGradient id="rose-grad-stem" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#559955" />
-              <stop offset="100%" stop-color="#1b4d22" />
-            </linearGradient>
-            <linearGradient id="rose-grad-leaves" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#80c670" />
-              <stop offset="100%" stop-color="#2a5c20" />
-            </linearGradient>
           </defs>
-          <!-- Stem -->
-          <path d="M 60 70 C 60 90, 52 105, 52 110" stroke="url(#rose-grad-stem)" stroke-width="4.5" fill="none" stroke-linecap="round" />
-          <!-- Leaves -->
-          <path d="M 52 100 C 40 102, 32 94, 25 96 C 32 88, 44 92, 52 100 Z" fill="url(#rose-grad-leaves)" stroke="#1b4d22" stroke-width="0.8" />
-          <path d="M 57 85 C 68 85, 78 91, 88 88 C 78 96, 68 92, 57 85 Z" fill="url(#rose-grad-leaves)" stroke="#1b4d22" stroke-width="0.8" />
-          <!-- Sepals -->
-          <path d="M 50 72 C 55 76, 65 76, 70 72 C 67 65, 63 60, 60 70 Z" fill="#2d6a31" />
-          <path d="M 45 68 C 48 74, 53 72, 50 72 Z" fill="#2d6a31" />
-          <!-- Petals -->
-          <path d="M 40 45 C 30 35, 90 35, 80 45 C 90 60, 30 60, 40 45 Z" fill="url(#rose-grad-petals)" />
-          <path d="M 42 43 C 25 35, 30 70, 60 72 C 40 68, 38 52, 42 43 Z" fill="url(#rose-grad-petals)" stroke="#6a0820" stroke-width="0.5" />
-          <path d="M 78 43 C 95 35, 90 70, 60 72 C 80 68, 82 52, 78 43 Z" fill="url(#rose-grad-petals)" stroke="#6a0820" stroke-width="0.5" />
-          <path d="M 50 48 C 40 38, 80 38, 70 48 C 75 60, 45 60, 50 48 Z" fill="url(#rose-grad-petals)" stroke="#6a0820" stroke-width="0.5" />
-          <path d="M 55 45 C 52 42, 68 42, 65 45 C 60 48, 56 46, 55 45 Z" fill="#ab0e39" />
-          <path d="M 57 44 C 58 41, 62 41, 63 44" stroke="#ff9ebb" stroke-width="1.2" fill="none" />
+          <path d="M50 85C47 82 15 54 15 35C15 22 25 12 37.5 12C45 12 48 16 50 20C52 16 55 12 62.5 12C75 12 85 22 85 35C85 54 53 82 50 85Z" fill="url(#heart-grad-petals)" />
         </svg>
-        <div class="click-here-inner">click here</div>
       </div>
+      <div class="click-here-btn">click here</div>
     </div>
     <p class="final-quote">"Some things are worth fighting for — and Anushka, you are at the very top of that list."</p>
     <div class="final-divider"></div>
@@ -1833,12 +1811,12 @@
     // Global touch/click heart spawner
     window.addEventListener('click', (e) => {
       // Exclude clicking on items that are specifically interactive to avoid blocking UI attention
-      if (e.target.closest('a') || e.target.closest('#envelope') || e.target.closest('.polaroid') || e.target.closest('#final-rose-container') || e.target.closest('#love-modal')) return;
+      if (e.target.closest('a') || e.target.closest('#envelope') || e.target.closest('.polaroid') || e.target.closest('#final-heart-container') || e.target.closest('#love-modal')) return;
       spawnHeartsBurst(e.clientX, e.clientY, 4);
     });
 
     window.addEventListener('touchstart', (e) => {
-      if (e.target.closest('a') || e.target.closest('#envelope') || e.target.closest('.polaroid') || e.target.closest('#final-rose-container') || e.target.closest('#love-modal')) return;
+      if (e.target.closest('a') || e.target.closest('#envelope') || e.target.closest('.polaroid') || e.target.closest('#final-heart-container') || e.target.closest('#love-modal')) return;
       const touch = e.touches[0];
       spawnHeartsBurst(touch.clientX, touch.clientY, 4);
     });
@@ -1849,32 +1827,90 @@
       }
     }
 
+    function spawnHeartsFromAllSides(count = 75) {
+      const centerX = width / 2;
+      const centerY = height / 2;
+      
+      for (let i = 0; i < count; i++) {
+        // Pick a random side: 0 = Top, 1 = Right, 2 = Bottom, 3 = Left
+        const side = Math.floor(Math.random() * 4);
+        let x, y;
+        
+        if (side === 0) { // Top
+          x = Math.random() * width;
+          y = -20;
+        } else if (side === 1) { // Right
+          x = width + 20;
+          y = Math.random() * height;
+        } else if (side === 2) { // Bottom
+          x = Math.random() * width;
+          y = height + 20;
+        } else { // Left
+          x = -20;
+          y = Math.random() * height;
+        }
+        
+        // Direction vector towards center
+        const dx = centerX - x;
+        const dy = centerY - y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        
+        // Speed
+        const speed = 3 + Math.random() * 6;
+        const vx = (dx / dist) * speed + (Math.random() - 0.5) * 1.5;
+        const vy = (dy / dist) * speed + (Math.random() - 0.5) * 1.5;
+        
+        // Create custom heart particle
+        const size = 12 + Math.random() * 18;
+        const color = `hsl(${340 + Math.random() * 25}, 95%, ${58 + Math.random() * 12}%)`;
+        const angle = Math.random() * Math.PI * 2;
+        const rotSpeed = -0.04 + Math.random() * 0.08;
+        
+        // Push custom heart particle
+        hearts.push({
+          x: x,
+          y: y,
+          size: size,
+          speedX: vx,
+          speedY: vy,
+          angle: angle,
+          rotSpeed: rotSpeed,
+          opacity: 1.0,
+          color: color,
+          update: function() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            this.angle += this.rotSpeed;
+            
+            // Decelerate slightly as they approach the center to hover
+            this.speedX *= 0.985;
+            this.speedY *= 0.985;
+            
+            // Fade out
+            this.opacity -= 0.007;
+          },
+          draw: function() {
+            if (this.opacity > 0) {
+              drawHeart(ctx, this.x, this.y, this.size, this.size, this.color, this.angle, this.opacity);
+            }
+          }
+        });
+      }
+    }
+
     // Secret Easter Egg & Love Quote Popup Trigger
-    const finalRose = document.getElementById('final-rose-container');
+    const finalHeart = document.getElementById('final-heart-container');
     const loveModal = document.getElementById('love-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
 
-    finalRose.addEventListener('click', (e) => {
-      // 1. Show the love quote overlay
+    function triggerLoveModal(e) {
       loveModal.classList.add('active');
-      
-      // 2. Spawn a massive heartbeat burst of hearts
-      const rect = finalRose.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-      spawnHeartsBurst(x, y, 32);
-      
+      spawnHeartsFromAllSides(80);
       e.stopPropagation();
-    });
+    }
 
-    finalRose.addEventListener('touchstart', (e) => {
-      loveModal.classList.add('active');
-      const rect = finalRose.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-      spawnHeartsBurst(x, y, 32);
-      e.stopPropagation();
-    });
+    finalHeart.addEventListener('click', triggerLoveModal);
+    finalHeart.addEventListener('touchstart', triggerLoveModal);
 
     // Close modal handlers
     closeModalBtn.addEventListener('click', (e) => {
