@@ -1117,9 +1117,96 @@
         max-width: 220px;
       }
     }
+
+    /* ── ENTRY OVERLAY SCREEN ── */
+    #entry-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, #230112 0%, #0a0005 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10010;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+      opacity: 1;
+      visibility: visible;
+    }
+    #entry-overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .entry-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 28px;
+      padding: 3.5rem 2rem;
+      width: 90%;
+      max-width: 440px;
+      text-align: center;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(255, 107, 157, 0.2);
+      animation: zoomInCard 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes zoomInCard {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .entry-heart {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      animation: heartbeat 1.5s infinite ease-in-out;
+      filter: drop-shadow(0 0 15px rgba(255, 107, 157, 0.6));
+    }
+    .entry-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.2rem, 4vw, 1.45rem);
+      color: var(--color-text-main);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      text-shadow: 0 0 10px rgba(255, 107, 157, 0.25);
+    }
+    .entry-btn {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(135deg, #ff6b9d 0%, #ff4a7d 100%);
+      padding: 14px 32px;
+      border-radius: 30px;
+      border: none;
+      box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, background 0.3s;
+    }
+    .entry-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(255, 107, 157, 0.6), 0 0 15px rgba(255, 107, 157, 0.2);
+    }
+    .entry-btn:active {
+      transform: translateY(-1px) scale(0.98);
+    }
+    body.lock-scroll {
+      overflow: hidden;
+    }
   </style>
 </head>
-<body>
+<body class="lock-scroll">
+
+  <!-- Entry Overlay Screen -->
+  <div id="entry-overlay">
+    <div class="entry-card">
+      <div class="entry-heart">❤️</div>
+      <p class="entry-text">Hope you like this and change your decision</p>
+      <button class="entry-btn" id="entry-btn">Here is my love for you</button>
+    </div>
+  </div>
 
   <!-- Background Music Controls -->
   <audio id="local-audio" src="songs.mp3" preload="auto"></audio>
@@ -2224,6 +2311,20 @@
     window.addEventListener('touchend', handleFirstInteraction);
     window.addEventListener('pointerdown', handleFirstInteraction);
     window.addEventListener('keydown', handleFirstInteraction);
+
+    // Entry Overlay Handler
+    const entryOverlay = document.getElementById('entry-overlay');
+    const entryBtn = document.getElementById('entry-btn');
+
+    entryBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      entryOverlay.classList.add('fade-out');
+      document.body.classList.remove('lock-scroll');
+      playMusic();
+      setTimeout(() => {
+        entryOverlay.remove();
+      }, 800);
+    });
   </script>
 
 </body>
