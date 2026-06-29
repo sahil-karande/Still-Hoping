@@ -1128,11 +1128,11 @@
   <!-- Floating Music Player Widget -->
   <div class="music-player">
     <div class="music-disc-wrapper">
-      <div class="music-disc" id="music-disc"></div>
+      <div class="music-disc playing" id="music-disc"></div>
     </div>
     <div class="music-info">
       <span class="music-title">Dil Na Jaaneya</span>
-      <span class="music-status" id="music-status">Tap to play 🎵</span>
+      <span class="music-status" id="music-status">Playing...</span>
     </div>
   </div>
 
@@ -2124,7 +2124,7 @@
         width: '1',
         videoId: 'g8wN914e-fM', // YouTube ID for Bollywood Song "Dil Na Jaaneya"
         playerVars: {
-          'autoplay': 0,
+          'autoplay': 1,
           'controls': 0,
           'disablekb': 1,
           'fs': 0,
@@ -2137,6 +2137,7 @@
         events: {
           'onReady': () => {
             console.log("YouTube Player is ready.");
+            playMusic();
           },
           'onStateChange': (event) => {
             if (event.data === YT.PlayerState.PLAYING) {
@@ -2149,15 +2150,7 @@
 
     function setPlayerPlaying() {
       isPlaying = true;
-      disc.classList.add('playing');
-      statusText.innerText = "Playing...";
       cleanInteractionListeners();
-    }
-
-    function setPlayerPaused(msg = "Tap to play 🎵") {
-      isPlaying = false;
-      disc.classList.remove('playing');
-      statusText.innerText = msg;
     }
 
     function playMusic() {
@@ -2168,15 +2161,10 @@
             setPlayerPlaying();
           }).catch(err => {
             console.log("Local autoplay blocked or failed:", err);
-            setPlayerPaused("Tap to play 🎵");
           });
         }
       } else if (player && typeof player.playVideo === 'function') {
         player.playVideo();
-        isPlaying = true;
-        disc.classList.add('playing');
-        statusText.innerText = "Playing...";
-        cleanInteractionListeners();
       }
     }
 
