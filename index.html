@@ -1122,7 +1122,7 @@
 <body>
 
   <!-- Background Music Controls -->
-  <audio id="local-audio" src="songs.mp3" autoplay loop></audio>
+  <audio id="local-audio" src="songs.mp3" preload="auto"></audio>
   <div id="yt-player" style="position: absolute; top: -100px; left: -100px; opacity: 0; pointer-events: none;"></div>
 
   <!-- Floating Music Player Widget -->
@@ -2105,10 +2105,15 @@
     let useLocal = true; // Default to true since we have songs.mp3 locally
     let player = null;
 
+    // Force load local audio resource for mobile devices
+    localAudio.load();
+
     // Check if local MP3 is available, fallback to YouTube if it fails or errors
     localAudio.addEventListener('error', () => {
-      useLocal = false;
-      console.log("Local audio file failed/not found. Using YouTube fallback.");
+      if (localAudio.error && localAudio.error.code === 4) {
+        useLocal = false;
+        console.log("Local audio file not found. Using YouTube fallback.");
+      }
     });
 
     // Load YouTube IFrame Player API dynamically as fallback
@@ -2168,10 +2173,29 @@
       }
     }
 
+    // Gapless loop implementation
+    // Bypasses MP3 silence at start and end of the audio file to create a seamless loop
+    localAudio.addEventListener('timeupdate', () => {
+      const skipEnd = 0.22; // Bypass 220ms trailing silence (typical for MP3 encoding)
+      const skipStart = 0.05; // Bypass 50ms leading silence
+      if (localAudio.duration && localAudio.currentTime >= localAudio.duration - skipEnd) {
+        localAudio.currentTime = skipStart;
+        localAudio.play().catch(err => console.log("Gapless loop failed:", err));
+      }
+    });
+
+    // Fallback loop if timeupdate missed the end point
+    localAudio.addEventListener('ended', () => {
+      localAudio.currentTime = 0.05;
+      localAudio.play().catch(err => console.log("Fallback loop failed:", err));
+    });
+
     // Clean up window event listeners once user interacts and music starts
     function cleanInteractionListeners() {
       window.removeEventListener('click', handleFirstInteraction);
       window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('touchend', handleFirstInteraction);
+      window.removeEventListener('pointerdown', handleFirstInteraction);
       window.removeEventListener('keydown', handleFirstInteraction);
     }
 
@@ -2197,6 +2221,8 @@
     // Listeners for user interaction to kickstart playing if blocked
     window.addEventListener('click', handleFirstInteraction);
     window.addEventListener('touchstart', handleFirstInteraction);
+    window.addEventListener('touchend', handleFirstInteraction);
+    window.addEventListener('pointerdown', handleFirstInteraction);
     window.addEventListener('keydown', handleFirstInteraction);
   </script>
 
