@@ -2132,22 +2132,17 @@
     const pauseIcon = `<svg viewBox="0 0 24 24"><path d="M14,19H18V5H14M6,19H10V5H6V19Z"/></svg>`;
 
     let isPlaying = false;
-    let useLocal = false;
+    let useLocal = true; // Default to true since we have songs.mp3 locally
     let player = null;
     let hasInteracted = false;
 
-    // Check if local MP3 is available
-    localAudio.addEventListener('canplaythrough', () => {
-      useLocal = true;
-      console.log("Local audio file found. Using local music playback.");
-    });
-
+    // Check if local MP3 is available, fallback to YouTube if it fails or errors
     localAudio.addEventListener('error', () => {
       useLocal = false;
-      console.log("Local audio file not found/loaded. Using YouTube background stream instead.");
+      console.log("Local audio file failed/not found. Using YouTube fallback.");
     });
 
-    // Load YouTube IFrame Player API dynamically
+    // Load YouTube IFrame Player API dynamically as fallback
     const ytScript = document.createElement('script');
     ytScript.src = "https://www.youtube.com/iframe_api";
     const firstScript = document.getElementsByTagName('script')[0];
@@ -2175,8 +2170,9 @@
             console.log("YouTube Player is ready.");
           },
           'onStateChange': (event) => {
-            // If the song ends (though it loops), handle playback states if needed
             if (event.data === YT.PlayerState.PLAYING) {
+              isPlaying = true;
+              playPauseBtn.innerHTML = pauseIcon;
               disc.classList.add('playing');
               statusText.innerText = "Playing...";
             }
@@ -2194,17 +2190,29 @@
     }
 
     function playMusic() {
-      isPlaying = true;
-      playPauseBtn.innerHTML = pauseIcon;
-      disc.classList.add('playing');
-      statusText.innerText = "Playing...";
-
       if (useLocal) {
-        localAudio.play().catch(err => {
-          console.log("Local audio playback failed: ", err);
-        });
+        const playPromise = localAudio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            isPlaying = true;
+            playPauseBtn.innerHTML = pauseIcon;
+            disc.classList.add('playing');
+            statusText.innerText = "Playing...";
+          }).catch(err => {
+            console.log("Local autoplay blocked or failed:", err);
+            // Sync UI to stopped state so disc doesn't spin silently
+            isPlaying = false;
+            disc.classList.remove('playing');
+            statusText.innerText = "Paused";
+            playPauseBtn.innerHTML = playIcon;
+          });
+        }
       } else if (player && typeof player.playVideo === 'function') {
         player.playVideo();
+        isPlaying = true;
+        playPauseBtn.innerHTML = pauseIcon;
+        disc.classList.add('playing');
+        statusText.innerText = "Playing...";
       }
     }
 
@@ -2227,40 +2235,47 @@
       e.stopPropagation();
     });
 
+    // Clean up window event listeners once user interacts and music starts
+    function cleanInteractionListeners() {
+      window.removeEventListener('click', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('scroll', handleFirstInteraction);
+      window.removeEventListener('keydown', handleFirstInteraction);
+    }
+
     // Sync player UI if native autoplay is allowed by the browser
     localAudio.addEventListener('play', () => {
       isPlaying = true;
       playPauseBtn.innerHTML = pauseIcon;
       disc.classList.add('playing');
       statusText.innerText = "Playing...";
-      hasInteracted = true;
+      if (!hasInteracted) {
+        hasInteracted = true;
+        cleanInteractionListeners();
+      }
     });
 
     // Auto-play music on the first user interaction (bypasses browser autoplay policy)
     function handleFirstInteraction() {
       if (!hasInteracted) {
         hasInteracted = true;
+        cleanInteractionListeners();
         playMusic();
-        
-        // Remove listeners
-        window.removeEventListener('click', handleFirstInteraction);
-        window.removeEventListener('touchstart', handleFirstInteraction);
-        window.removeEventListener('scroll', handleFirstInteraction);
       }
     }
 
     // Try to trigger programmatic play on window load
     window.addEventListener('load', () => {
       setTimeout(() => {
-        // Attempt programmatic play
         playMusic();
-      }, 300);
+      }, 100);
     });
 
     // Listeners for user interaction to kickstart playing if blocked
     window.addEventListener('click', handleFirstInteraction);
     window.addEventListener('touchstart', handleFirstInteraction);
     window.addEventListener('scroll', handleFirstInteraction);
+    window.addEventListener('keydown', handleFirstInteraction);
   </script>
 
 </body>
