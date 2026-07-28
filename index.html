@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Anushka — With All My Love</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       --bg-primary: #0a0005;
@@ -19,19 +22,21 @@
       --color-text-main: #faf0f2;
       --color-text-muted: #cbb2be;
       --color-text-dark: #8b4a6b;
-      
+
       --font-heading: 'Cinzel', serif;
       --font-serif: 'Playfair Display', serif;
       --font-cursive: 'Great Vibes', cursive;
       --font-body: 'Outfit', sans-serif;
-      
+
       --glass-bg: rgba(255, 255, 255, 0.02);
       --glass-border: rgba(255, 107, 157, 0.15);
       --glass-border-hover: rgba(255, 107, 157, 0.35);
       --glass-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.5);
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -55,13 +60,16 @@
     ::-webkit-scrollbar {
       width: 6px;
     }
+
     ::-webkit-scrollbar-track {
       background: var(--bg-primary);
     }
+
     ::-webkit-scrollbar-thumb {
       background: var(--color-text-dark);
       border-radius: 3px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: var(--color-primary);
     }
@@ -96,10 +104,12 @@
       max-width: 260px;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
+
     .music-player:hover {
       border-color: rgba(255, 107, 157, 0.35);
       box-shadow: 0 8px 32px rgba(255, 107, 157, 0.1), 0 8px 32px rgba(0, 0, 0, 0.6);
     }
+
     .music-disc-wrapper {
       width: 36px;
       height: 36px;
@@ -113,22 +123,22 @@
       overflow: hidden;
       flex-shrink: 0;
     }
+
     .music-disc {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: repeating-radial-gradient(
-        circle,
-        #1f0212,
-        #12010a 2px,
-        #2a0319 4px
-      );
+      background: repeating-radial-gradient(circle,
+          #1f0212,
+          #12010a 2px,
+          #2a0319 4px);
       display: flex;
       align-items: center;
       justify-content: center;
       animation: spin 8s linear infinite;
       animation-play-state: paused;
     }
+
     .music-disc::after {
       content: '';
       width: 10px;
@@ -137,19 +147,28 @@
       background: var(--bg-primary);
       border: 2px solid var(--color-primary);
     }
+
     .music-disc.playing {
       animation-play-state: running;
     }
+
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     .music-info {
       display: flex;
       flex-direction: column;
       overflow: hidden;
       max-width: 120px;
     }
+
     .music-title {
       font-family: var(--font-body);
       font-size: 0.75rem;
@@ -159,6 +178,7 @@
       text-overflow: ellipsis;
       overflow: hidden;
     }
+
     .music-status {
       font-family: var(--font-serif);
       font-style: italic;
@@ -189,13 +209,18 @@
       animation: slideUpNav 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
+
     @keyframes slideUpNav {
-      to { transform: translateX(-50%) translateY(0); }
+      to {
+        transform: translateX(-50%) translateY(0);
+      }
     }
+
     .nav-dock:hover {
       border-color: rgba(255, 107, 157, 0.35);
       box-shadow: 0 15px 45px rgba(255, 107, 157, 0.15), 0 12px 40px rgba(0, 0, 0, 0.7);
     }
+
     .nav-item {
       display: flex;
       flex-direction: column;
@@ -208,6 +233,7 @@
       transition: color 0.3s, transform 0.2s;
       padding: 4px 6px;
     }
+
     .nav-item svg {
       width: 20px;
       height: 20px;
@@ -216,17 +242,21 @@
       stroke-width: 1.5;
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), stroke-width 0.3s;
     }
+
     .nav-item:hover {
       color: var(--color-primary);
     }
+
     .nav-item:hover svg {
       transform: scale(1.2) translateY(-2px);
       stroke-width: 2;
     }
+
     .nav-item.active {
       color: var(--color-primary);
       text-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
     }
+
     .nav-item.active svg {
       stroke-width: 2;
       filter: drop-shadow(0 0 4px var(--color-primary));
@@ -245,6 +275,7 @@
       text-align: center;
       padding: 6rem 1.5rem 5rem;
     }
+
     .hero-subtitle {
       font-family: var(--font-serif);
       font-style: italic;
@@ -256,6 +287,7 @@
       animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
       text-shadow: 0 0 10px rgba(244, 208, 164, 0.25);
     }
+
     .hero-title {
       font-family: var(--font-heading);
       font-size: clamp(2.4rem, 8vw, 4.8rem);
@@ -265,10 +297,12 @@
       margin-bottom: 0.8rem;
       animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
     }
+
     .hero-title span {
       color: var(--color-primary);
       text-shadow: 0 0 25px rgba(255, 107, 157, 0.45);
     }
+
     .hero-name {
       font-family: var(--font-cursive);
       font-size: clamp(4.8rem, 15vw, 8rem);
@@ -277,6 +311,7 @@
       animation: fadeUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
       text-shadow: 0 0 30px rgba(255, 107, 157, 0.6), 0 0 60px rgba(255, 107, 157, 0.25);
     }
+
     .hero-divider {
       width: 100px;
       height: 2px;
@@ -284,6 +319,7 @@
       margin: 2.2rem auto;
       animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both;
     }
+
     .hero-verse {
       font-family: var(--font-serif);
       font-style: italic;
@@ -294,6 +330,7 @@
       margin: 0 auto;
       animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both;
     }
+
     .scroll-hint {
       position: absolute;
       bottom: 2rem;
@@ -309,6 +346,7 @@
       text-transform: uppercase;
       animation: pulse 2.5s ease infinite;
     }
+
     .scroll-hint::after {
       content: '';
       width: 1px;
@@ -317,12 +355,29 @@
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0);    }
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes pulse {
-      0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
-      50%       { opacity: 1; transform: translateX(-50%) translateY(5px); }
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(5px);
+      }
     }
 
     /* ── SECTION BASE ── */
@@ -331,6 +386,7 @@
       max-width: 900px;
       margin: 0 auto;
     }
+
     .section-label {
       font-family: var(--font-heading);
       font-size: 0.75rem;
@@ -341,6 +397,7 @@
       display: block;
       text-shadow: 0 0 8px rgba(244, 208, 164, 0.2);
     }
+
     .section-heading {
       font-family: var(--font-heading);
       font-size: clamp(2rem, 5.5vw, 3rem);
@@ -349,6 +406,7 @@
       margin-bottom: 1.5rem;
       line-height: 1.25;
     }
+
     .section-heading em {
       font-family: var(--font-cursive);
       color: var(--color-primary);
@@ -357,6 +415,7 @@
       text-shadow: 0 0 15px rgba(255, 107, 157, 0.3);
       margin-left: 6px;
     }
+
     .divider-line {
       width: 80px;
       height: 2px;
@@ -370,6 +429,7 @@
       position: relative;
       padding-left: 2rem;
     }
+
     .timeline::before {
       content: '';
       position: absolute;
@@ -379,6 +439,7 @@
       width: 2px;
       background: linear-gradient(to bottom, transparent, var(--color-primary), var(--color-accent), var(--color-primary), transparent);
     }
+
     .timeline-item {
       position: relative;
       margin-bottom: 3.5rem;
@@ -393,14 +454,17 @@
       transform: translateX(-30px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
     }
+
     .timeline-item.visible {
       opacity: 1;
       transform: translateX(0);
     }
+
     .timeline-item:hover {
       border-color: var(--glass-border-hover);
       box-shadow: 0 15px 35px rgba(255, 107, 157, 0.12), var(--glass-shadow);
     }
+
     .timeline-dot {
       position: absolute;
       left: -2rem;
@@ -413,9 +477,11 @@
       transform: translateX(-5px);
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+
     .timeline-item:hover .timeline-dot {
       transform: translateX(-5px) scale(1.3);
     }
+
     .timeline-date {
       font-family: var(--font-heading);
       font-size: 0.7rem;
@@ -425,32 +491,37 @@
       margin-bottom: 0.6rem;
       font-weight: 600;
     }
+
     .timeline-title {
       font-family: var(--font-heading);
       font-size: 1.3rem;
       color: var(--color-text-main);
       margin-bottom: 0.8rem;
     }
+
     .timeline-text {
       color: var(--color-text-muted);
       line-height: 1.8;
       font-size: 0.95rem;
     }
+
     .timeline-photo-wrapper {
       margin-top: 15px;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--glass-border);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
       max-width: 100%;
       background: rgba(255, 255, 255, 0.05);
     }
+
     .timeline-img {
       width: 100%;
       height: auto;
       display: block;
       transition: transform 0.3s ease;
     }
+
     .timeline-img:hover {
       transform: scale(1.04);
     }
@@ -461,6 +532,7 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
     }
+
     .reason-card {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
@@ -473,15 +545,18 @@
       transform: translateY(30px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
     }
+
     .reason-card.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     .reason-card:hover {
       border-color: var(--glass-border-hover);
       transform: translateY(-6px);
       box-shadow: 0 20px 40px rgba(255, 107, 157, 0.15), var(--glass-shadow);
     }
+
     .reason-num {
       font-family: var(--font-serif);
       font-size: 3rem;
@@ -493,16 +568,19 @@
       margin-bottom: 0.6rem;
       transition: opacity 0.3s, transform 0.3s;
     }
+
     .reason-card:hover .reason-num {
       opacity: 0.55;
       transform: scale(1.05);
     }
+
     .reason-title {
       font-family: var(--font-heading);
       font-size: 1.15rem;
       color: var(--color-text-main);
       margin-bottom: 0.6rem;
     }
+
     .reason-text {
       color: var(--color-text-muted);
       font-size: 0.9rem;
@@ -514,6 +592,7 @@
       background: radial-gradient(circle at center, #260216 0%, #0a0005 100%);
       padding: 7rem 1.5rem;
     }
+
     .envelope-tip {
       text-align: center;
       color: var(--color-accent);
@@ -525,10 +604,19 @@
       animation: hintPulse 2s infinite ease-in-out;
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
     @keyframes hintPulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
+
+      0%,
+      100% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
+
     .envelope-wrapper {
       width: 100%;
       max-width: 480px;
@@ -537,34 +625,43 @@
       position: relative;
       transition: margin-bottom 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .letter-section.open .envelope-tip {
       opacity: 0;
       transform: translateY(-10px);
       pointer-events: none;
     }
+
     .letter-section.open .envelope-wrapper {
-      margin-bottom: 170px; /* smoothly pushes Chapter Four down */
+      margin-bottom: 170px;
+      /* smoothly pushes Chapter Four down */
     }
+
     .envelope {
       position: relative;
       width: 100%;
       height: 280px;
       background: #250215;
       border-radius: 0 0 16px 16px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
       cursor: pointer;
       transform-style: preserve-3d;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .envelope:hover {
       transform: translateY(-5px) rotateX(10deg);
     }
+
     .envelope-flap {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
     }
+
     .top-flap {
       background: #500f34;
       clip-path: polygon(0 0, 50% 52%, 100% 0);
@@ -572,22 +669,26 @@
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.3s;
       z-index: 5;
     }
+
     .left-flap {
       background: #32061e;
       clip-path: polygon(0 0, 48% 50%, 0 100%);
       z-index: 4;
     }
+
     .right-flap {
       background: #380922;
       clip-path: polygon(100% 0, 52% 50%, 100% 100%);
       z-index: 4;
     }
+
     .bottom-flap {
       background: #1f0111;
       clip-path: polygon(0 100%, 50% 48%, 100% 100%);
       border-radius: 0 0 16px 16px;
       z-index: 4;
     }
+
     .wax-seal {
       position: absolute;
       top: 50%;
@@ -600,14 +701,17 @@
       filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
       transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
     }
+
     .envelope:hover .wax-seal {
       transform: translate(-50%, -35%) scale(1.12);
     }
+
     .wax-seal svg {
       width: 100%;
       height: 100%;
       animation: heartbeat 2s infinite ease-in-out;
     }
+
     .letter {
       position: absolute;
       top: 15px;
@@ -618,13 +722,14 @@
       color: #2b051a;
       border-radius: 12px;
       padding: 2.2rem 1.8rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       z-index: 2;
       transform: translateY(0);
       transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.3s, height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
       box-sizing: border-box;
     }
+
     .close-letter {
       position: absolute;
       top: 0.8rem;
@@ -643,12 +748,14 @@
       border-radius: 50%;
       font-weight: bold;
     }
+
     .close-letter:hover {
       opacity: 1;
       color: var(--color-primary);
       background: rgba(255, 107, 157, 0.08);
       transform: scale(1.1);
     }
+
     .letter-text {
       font-family: var(--font-serif);
       font-style: italic;
@@ -659,20 +766,26 @@
       padding-right: 6px;
       box-sizing: border-box;
     }
+
     .letter-text::-webkit-scrollbar {
       width: 5px;
     }
+
     .letter-text::-webkit-scrollbar-track {
       background: rgba(255, 107, 157, 0.04);
       border-radius: 3px;
     }
+
     .letter-text::-webkit-scrollbar-thumb {
-      background: rgba(146, 25, 80, 0.38); /* darker burgundy matching signature */
+      background: rgba(146, 25, 80, 0.38);
+      /* darker burgundy matching signature */
       border-radius: 3px;
     }
+
     .letter-text::-webkit-scrollbar-thumb:hover {
       background: rgba(146, 25, 80, 0.68);
     }
+
     .letter-sig {
       margin-top: 1.5rem;
       font-family: var(--font-cursive);
@@ -683,15 +796,18 @@
       transform: translateY(10px);
       transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
     }
+
     .letter-scroll-hint {
       position: absolute;
-      bottom: -45px; /* Sit just below the bottom edge of the letter card */
+      bottom: -45px;
+      /* Sit just below the bottom edge of the letter card */
       left: 50%;
       transform: translateX(-50%);
       font-family: var(--font-serif);
       font-size: 0.8rem;
       font-style: italic;
-      color: var(--color-accent); /* Rose gold/accent color for contrast on dark background */
+      color: var(--color-accent);
+      /* Rose gold/accent color for contrast on dark background */
       text-shadow: 0 0 8px rgba(244, 208, 164, 0.4);
       pointer-events: none;
       opacity: 0;
@@ -702,48 +818,66 @@
       align-items: center;
       gap: 2px;
     }
+
     .letter-scroll-hint.faded {
       opacity: 0 !important;
       transform: translate(-50%, 10px);
     }
+
     .letter-scroll-hint::after {
       content: '↓';
       font-size: 1rem;
       font-weight: bold;
       animation: bounceDown 1.5s infinite;
     }
+
     @keyframes bounceDown {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(4px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(4px);
+      }
     }
 
     /* Envelope Open State */
     .envelope.open {
       transform: translateY(80px);
     }
+
     .envelope.open .top-flap {
       transform: rotateX(180deg);
       z-index: 1;
     }
+
     .envelope.open .wax-seal {
       transform: translate(-50%, -35%) scale(0);
       opacity: 0;
       pointer-events: none;
     }
+
     .envelope.open .letter {
       transform: translateY(-170px);
       z-index: 10;
-      height: 480px; /* specific open height for smooth height transition */
-      overflow: visible; /* Allow scroll hint to render outside the card bounds */
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 25px rgba(255, 107, 157, 0.25);
+      height: 480px;
+      /* specific open height for smooth height transition */
+      overflow: visible;
+      /* Allow scroll hint to render outside the card bounds */
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 107, 157, 0.25);
     }
+
     .envelope.open .letter-sig {
       opacity: 1;
       transform: translateY(0);
     }
+
     .envelope.open .letter-scroll-hint {
       opacity: 0.85;
-      transition-delay: 0.8s; /* waits for the letter to open fully before showing hint */
+      transition-delay: 0.8s;
+      /* waits for the letter to open fully before showing hint */
     }
 
     /* ── PROMISES ── */
@@ -753,6 +887,7 @@
       flex-direction: column;
       gap: 1.25rem;
     }
+
     .promises-list li {
       display: flex;
       align-items: flex-start;
@@ -768,14 +903,17 @@
       transform: translateY(20px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, background-color 0.3s;
     }
+
     .promises-list li.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     .promises-list li:hover {
       border-color: rgba(255, 107, 157, 0.28);
       background: rgba(255, 255, 255, 0.035);
     }
+
     .promise-marker {
       width: 30px;
       height: 30px;
@@ -799,16 +937,18 @@
       font-style: italic;
       margin-bottom: 2rem;
     }
+
     .photos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 2.2rem;
       justify-items: center;
     }
+
     .polaroid {
       background: #fbf9f6;
       padding: 14px 14px 28px 14px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(0,0,0,0.03);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(0, 0, 0, 0.03);
       border-radius: 4px;
       display: flex;
       flex-direction: column;
@@ -819,23 +959,29 @@
       position: relative;
       cursor: pointer;
     }
+
     .polaroid:nth-child(odd) {
       transform: rotate(-3deg);
     }
+
     .polaroid:nth-child(even) {
       transform: rotate(3deg);
     }
+
     .polaroid:nth-child(3n) {
       transform: rotate(-1.5deg);
     }
+
     .polaroid:nth-child(3n+1) {
       transform: rotate(2deg);
     }
+
     .polaroid:hover {
       transform: scale(1.06) rotate(0deg) translateY(-8px);
       box-shadow: 0 22px 45px rgba(255, 107, 157, 0.22), 0 15px 30px rgba(0, 0, 0, 0.5);
       z-index: 10;
     }
+
     .polaroid-img-wrapper {
       width: 100%;
       aspect-ratio: 1;
@@ -846,17 +992,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(0,0,0,0.08);
+      border: 1px solid rgba(0, 0, 0, 0.08);
     }
+
     .polaroid-img-wrapper svg {
       width: 58%;
       height: 58%;
       opacity: 0.8;
       transition: transform 0.5s ease;
     }
+
     .polaroid:hover .polaroid-img-wrapper svg {
       transform: scale(1.1);
     }
+
     .polaroid img {
       position: absolute;
       inset: 0;
@@ -865,16 +1014,18 @@
       object-fit: cover;
       transition: transform 0.5s ease;
     }
+
     .polaroid:hover img {
       transform: scale(1.08);
     }
+
     .polaroid-caption {
       font-family: var(--font-cursive);
       font-size: 1.65rem;
       color: #380620;
       margin-top: 14px;
       text-align: center;
-      text-shadow: 1px 1px 1px rgba(0,0,0,0.04);
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
       line-height: 1;
     }
 
@@ -890,6 +1041,7 @@
       background: radial-gradient(circle at center, #35081f 0%, #0a0005 100%);
       position: relative;
     }
+
     .heart-container {
       display: inline-flex;
       flex-direction: column;
@@ -899,9 +1051,11 @@
       margin-bottom: 2.2rem;
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+
     .heart-container:hover {
       transform: scale(1.05);
     }
+
     .svg-heart-wrapper {
       width: 160px;
       height: 160px;
@@ -913,18 +1067,22 @@
       justify-content: center;
       box-shadow: 0 0 35px rgba(255, 107, 157, 0.18), inset 0 0 20px rgba(255, 107, 157, 0.1);
       position: relative;
-      animation: heartbeat 1.2s ease infinite; /* Pumping heartbeat speed! */
+      animation: heartbeat 1.2s ease infinite;
+      /* Pumping heartbeat speed! */
       transition: border-color 0.3s, box-shadow 0.3s;
     }
+
     .heart-container:hover .svg-heart-wrapper {
       border-color: rgba(255, 107, 157, 0.65);
       box-shadow: 0 0 45px rgba(255, 107, 157, 0.35), inset 0 0 25px rgba(255, 107, 157, 0.2);
     }
+
     .svg-heart {
       width: 100px;
       height: 100px;
       filter: drop-shadow(0 6px 15px rgba(255, 74, 125, 0.45));
     }
+
     .click-here-btn {
       margin-top: 18px;
       font-family: var(--font-body);
@@ -937,11 +1095,12 @@
       padding: 8px 22px;
       border-radius: 25px;
       border: 1.5px solid rgba(255, 107, 157, 0.35);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
       transition: all 0.3s ease;
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
     }
+
     .heart-container:hover .click-here-btn {
       background: rgba(255, 107, 157, 0.22);
       border-color: rgba(255, 107, 157, 0.7);
@@ -949,10 +1108,13 @@
       color: #fff;
       transform: translateY(-2px);
     }
+
     .love-modal {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(8, 0, 4, 0.92);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
@@ -964,10 +1126,12 @@
       pointer-events: none;
       transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .love-modal.active {
       opacity: 1;
       pointer-events: auto;
     }
+
     .love-modal-content {
       text-align: center;
       padding: 3rem 2rem;
@@ -983,9 +1147,11 @@
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 107, 157, 0.15);
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .love-modal.active .love-modal-content {
       transform: scale(1);
     }
+
     .love-modal-close {
       position: absolute;
       top: 1rem;
@@ -1001,11 +1167,13 @@
       border-radius: 50%;
       transition: color 0.3s, background-color 0.3s, transform 0.3s;
     }
+
     .love-modal-close:hover {
       color: var(--color-primary);
       background: rgba(255, 107, 157, 0.08);
       transform: scale(1.1);
     }
+
     .love-modal-text {
       font-family: var(--font-serif);
       font-style: italic;
@@ -1015,6 +1183,7 @@
       margin-bottom: 2rem;
       text-shadow: 0 0 15px rgba(255, 107, 157, 0.2);
     }
+
     .love-modal-text span {
       display: block;
       font-family: var(--font-cursive);
@@ -1023,19 +1192,38 @@
       text-shadow: 0 0 25px rgba(255, 107, 157, 0.5);
       margin-top: 10px;
     }
+
     .love-modal-heart {
       font-size: 3rem;
       line-height: 1;
       animation: heartbeat 1.5s infinite ease-in-out;
       filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.6));
     }
+
     @keyframes heartbeat {
-      0%, 100% { transform: scale(1);    }
-      14%       { transform: scale(1.1); }
-      28%       { transform: scale(1);   }
-      42%       { transform: scale(1.06);}
-      70%       { transform: scale(1);   }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      14% {
+        transform: scale(1.1);
+      }
+
+      28% {
+        transform: scale(1);
+      }
+
+      42% {
+        transform: scale(1.06);
+      }
+
+      70% {
+        transform: scale(1);
+      }
     }
+
     .final-quote {
       font-family: var(--font-serif);
       font-style: italic;
@@ -1044,14 +1232,16 @@
       max-width: 640px;
       line-height: 1.75;
       margin-bottom: 2rem;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
     }
+
     .final-divider {
       width: 60px;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--color-primary), var(--color-accent), var(--color-primary), transparent);
       margin: 0 auto 2rem;
     }
+
     .final-name {
       font-family: var(--font-cursive);
       font-size: 2.2rem;
@@ -1068,51 +1258,66 @@
         max-width: 200px;
         gap: 8px;
       }
+
       .music-disc-wrapper {
         width: 30px;
         height: 30px;
       }
+
       .music-title {
         font-size: 0.7rem;
       }
+
       .music-info {
         max-width: 90px;
       }
+
       .section {
         padding: 5rem 1.25rem;
       }
+
       .nav-dock {
         bottom: 1rem;
         padding: 0.5rem 0.6rem;
       }
+
       .nav-item {
         font-size: 0.6rem;
         gap: 2px;
       }
+
       .nav-item svg {
         width: 18px;
         height: 18px;
       }
+
       .envelope {
         height: 240px;
       }
+
       .envelope.open .letter {
         transform: translateY(-130px);
-        height: 450px; /* specific height on mobile for smooth height transition */
+        height: 450px;
+        /* specific height on mobile for smooth height transition */
         padding: 1.8rem 1.4rem;
       }
+
       .letter-section.open .envelope-wrapper {
-        margin-bottom: 130px; /* Push Chapter Four section down on mobile */
+        margin-bottom: 130px;
+        /* Push Chapter Four section down on mobile */
       }
+
       .envelope-wrapper {
         max-width: 92%;
       }
+
       .letter-text {
         font-size: 0.88rem;
         line-height: 1.7;
         height: 100%;
         padding-bottom: 2rem;
       }
+
       .polaroid {
         max-width: 220px;
       }
@@ -1134,10 +1339,12 @@
       opacity: 1;
       visibility: visible;
     }
+
     #entry-overlay.fade-out {
       opacity: 0;
       visibility: hidden;
     }
+
     .entry-card {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--glass-border);
@@ -1151,16 +1358,26 @@
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(255, 107, 157, 0.2);
       animation: zoomInCard 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     @keyframes zoomInCard {
-      from { transform: scale(0.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
+
     .entry-heart {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
       animation: heartbeat 1.5s infinite ease-in-out;
       filter: drop-shadow(0 0 15px rgba(255, 107, 157, 0.6));
     }
+
     .entry-text {
       font-family: var(--font-serif);
       font-style: italic;
@@ -1170,6 +1387,7 @@
       margin-bottom: 2.5rem;
       text-shadow: 0 0 10px rgba(255, 107, 157, 0.25);
     }
+
     .entry-btn {
       font-family: var(--font-body);
       font-size: 0.9rem;
@@ -1185,18 +1403,22 @@
       cursor: pointer;
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, background 0.3s;
     }
+
     .entry-btn:hover {
       transform: translateY(-3px) scale(1.03);
       box-shadow: 0 12px 30px rgba(255, 107, 157, 0.6), 0 0 15px rgba(255, 107, 157, 0.2);
     }
+
     .entry-btn:active {
       transform: translateY(-1px) scale(0.98);
     }
+
     body.lock-scroll {
       overflow: hidden;
     }
   </style>
 </head>
+
 <body class="lock-scroll">
 
   <!-- Entry Overlay Screen -->
@@ -1241,23 +1463,39 @@
   <!-- FLOATING NAVIGATION DOCK -->
   <nav class="nav-dock">
     <a href="#story" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.41,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.59,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.41,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.59,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+      </svg>
       <span>Story</span>
     </a>
     <a href="#reasons" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+      </svg>
       <span>Why You</span>
     </a>
     <a href="#letter" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18C2,19.1 2.89,20 4,20H20C21.1,20 22,19.1 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M20,4H4C2.89,4 2,4.89 2,6V18C2,19.1 2.89,20 4,20H20C21.1,20 22,19.1 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z" />
+      </svg>
       <span>Letter</span>
     </a>
     <a href="#promises" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M12,18C8.67,18 6,15.33 6,12C6,10.1 6.88,8.4 8.26,7.27L9.67,8.68C8.64,9.5 8,10.67 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12C16,10.67 15.36,9.5 14.33,8.68L15.74,7.27C17.12,8.4 18,10.1 18,12C18,15.33 15.33,18 12,18M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10Z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M12,18C8.67,18 6,15.33 6,12C6,10.1 6.88,8.4 8.26,7.27L9.67,8.68C8.64,9.5 8,10.67 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12C16,10.67 15.36,9.5 14.33,8.68L15.74,7.27C17.12,8.4 18,10.1 18,12C18,15.33 15.33,18 12,18M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10Z" />
+      </svg>
       <span>Promises</span>
     </a>
     <a href="#memories" class="nav-item">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3.2" />
+        <path
+          d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+      </svg>
       <span>Memories</span>
     </a>
   </nav>
@@ -1287,51 +1525,67 @@
         <div class="timeline-dot"></div>
         <p class="timeline-date">2020</p>
         <h3 class="timeline-title">First Glances at Tumsar ✨</h3>
-        <p class="timeline-text">Our story began amidst the celebration and joy of a family wedding in Tumsar. In the middle of the crowd, our paths crossed, and a quiet, beautiful spark was born. I was in Nagpur and you were in Bhandara, but even the distance between our cities couldn't fade the memory of that special night.</p>
+        <p class="timeline-text">Our story began amidst the celebration and joy of a family wedding in Tumsar. In the
+          middle of the crowd, our paths crossed, and a quiet, beautiful spark was born. I was in Nagpur and you were in
+          Bhandara, but even the distance between our cities couldn't fade the memory of that special night.</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <p class="timeline-date">Nov 16, 2022</p>
         <h3 class="timeline-title">A Simple "Hey" on Snapchat 💬</h3>
-        <p class="timeline-text">Two years later, fate quietly brought us back. We connected on Snapchat, and our very first chat started with a shy 'hey' and a simple 'hello'. Those small messages soon became a bridge of laughter and notes, bringing Bhandara and Nagpur closer every single day.</p>
+        <p class="timeline-text">Two years later, fate quietly brought us back. We connected on Snapchat, and our very
+          first chat started with a shy 'hey' and a simple 'hello'. Those small messages soon became a bridge of
+          laughter and notes, bringing Bhandara and Nagpur closer every single day.</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <p class="timeline-date">Late 2022</p>
         <h3 class="timeline-title">Whispers of a Heartbeat ❤️</h3>
-        <p class="timeline-text">As our conversations grew longer, our feelings grew deeper. The day came when we finally confessed what was in our hearts: I told you that I loved you, and you shyly admitted that you had a crush on me. But love is a journey with hills to climb; due to outside circumstances and reasons, we faced a painful breakup the very next day.</p>
+        <p class="timeline-text">As our conversations grew longer, our feelings grew deeper. The day came when we
+          finally confessed what was in our hearts: I told you that I loved you, and you shyly admitted that you had a
+          crush on me. But love is a journey with hills to climb; due to outside circumstances and reasons, we faced a
+          painful breakup the very next day.</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <p class="timeline-date">2025</p>
         <h3 class="timeline-title">Reconnecting the Threads 💫</h3>
-        <p class="timeline-text">Years passed, but the unspoken bond remained. In 2025, you reached out and said, 'I want you back.' My heart didn't hesitate for a single second—I replied, 'I love you too,' and just like that, we picked up the threads of our story.</p>
+        <p class="timeline-text">Years passed, but the unspoken bond remained. In 2025, you reached out and said, 'I
+          want you back.' My heart didn't hesitate for a single second—I replied, 'I love you too,' and just like that,
+          we picked up the threads of our story.</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <p class="timeline-date">May 2025</p>
         <h3 class="timeline-title">Nagpur Reunion & Our Promise 🌸</h3>
-        <p class="timeline-text">A few days into our reconnection, fears got the better of me, and I suggested we part ways again. You asked, 'but why?', holding onto the bond we shared. Everything shifted in May when you moved to Nagpur for your NID and UCEED classes, living in the hostel. Seeing you in person changed everything. I looked into your eyes and said, 'I love you, let's make this real.' And you replied, 'I love you too.'</p>
+        <p class="timeline-text">A few days into our reconnection, fears got the better of me, and I suggested we part
+          ways again. You asked, 'but why?', holding onto the bond we shared. Everything shifted in May when you moved
+          to Nagpur for your NID and UCEED classes, living in the hostel. Seeing you in person changed everything. I
+          looked into your eyes and said, 'I love you, let's make this real.' And you replied, 'I love you too.'</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <p class="timeline-date">First Date</p>
         <h3 class="timeline-title">Meeting in the Real World 👩‍❤️‍👨</h3>
-        <p class="timeline-text">I met you in person for the first time in Nagpur, alongside Riya. Transitioning our late-night chats and calls into the warmth of the real world was magical—laughing, sharing stories, and realizing how real this connection truly is.</p>
+        <p class="timeline-text">I met you in person for the first time in Nagpur, alongside Riya. Transitioning our
+          late-night chats and calls into the warmth of the real world was magical—laughing, sharing stories, and
+          realizing how real this connection truly is.</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <p class="timeline-date">The Birthday surprise</p>
         <h3 class="timeline-title">An Unexpected Gift 🎁</h3>
-        <p class="timeline-text">I planned your birthday with the most exciting gift—something you truly didn't expect from me. Seeing the pure joy and disbelief on your face is a memory I will carry with me forever.</p>
+        <p class="timeline-text">I planned your birthday with the most exciting gift—something you truly didn't expect
+          from me. Seeing the pure joy and disbelief on your face is a memory I will carry with me forever.</p>
         <div class="timeline-photo-wrapper">
-          <img class="timeline-img" src="birthday.jpg" alt="Our Special Birthday Moment" onerror="this.style.display='none'">
+          <img class="timeline-img" src="birthday.jpg" alt="Our Special Birthday Moment"
+            onerror="this.style.display='none'">
         </div>
       </div>
 
@@ -1339,21 +1593,29 @@
         <div class="timeline-dot"></div>
         <p class="timeline-date">Simple Joys</p>
         <h3 class="timeline-title">Scooty Rides & Lake Sunsets 🛵</h3>
-        <p class="timeline-text">Our days were filled with simple, happy memories. Endless scooty rides with the wind in our faces, Pani Puri challenges, and sharing Dabeli. Your favorite 'Sadha Soda' was always a must-have, and I loved watching you enjoy every South Indian dish. We spent peaceful afternoons listening to the water at Sonegaon Lake and watching sunsets at Zilpi Lake.</p>
+        <p class="timeline-text">Our days were filled with simple, happy memories. Endless scooty rides with the wind in
+          our faces, Pani Puri challenges, and sharing Dabeli. Your favorite 'Sadha Soda' was always a must-have, and I
+          loved watching you enjoy every South Indian dish. We spent peaceful afternoons listening to the water at
+          Sonegaon Lake and watching sunsets at Zilpi Lake.</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <p class="timeline-date">Our Travels</p>
         <h3 class="timeline-title">From Nagpur Temples to Ujjain ⛩️</h3>
-        <p class="timeline-text">Our first trip together was visiting 4 to 5 temples across Nagpur, seeking blessings for our future. But our absolute favorite memory is our trip to Ujjain. The journey, the prayers to Mahakal, and being side-by-side made us closer and stronger than we had ever been.</p>
+        <p class="timeline-text">Our first trip together was visiting 4 to 5 temples across Nagpur, seeking blessings
+          for our future. But our absolute favorite memory is our trip to Ujjain. The journey, the prayers to Mahakal,
+          and being side-by-side made us closer and stronger than we had ever been.</p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <p class="timeline-date">Today</p>
         <h3 class="timeline-title">A Promise for Our Future 🔐</h3>
-        <p class="timeline-text">Everything was going so beautifully, and I don't know whose shadow or curse fell upon us to bring us to this difficult day. Anushka, you told me about a breakup, but that is a massive decision for us. I don't want to lose what we've built. Please take your time, look at everything we share, and look deep into your heart. I promise my love for you will never fade—and I hope yours won't either.</p>
+        <p class="timeline-text">Everything was going so beautifully, and I don't know whose shadow or curse fell upon
+          us to bring us to this difficult day. Anushka, you told me about a breakup, but that is a massive decision for
+          us. I don't want to lose what we've built. Please take your time, look at everything we share, and look deep
+          into your heart. I promise my love for you will never fade—and I hope yours won't either.</p>
       </div>
     </div>
   </section>
@@ -1368,32 +1630,38 @@
       <div class="reason-card">
         <div class="reason-num">01</div>
         <h3 class="reason-title">I Feel Complete With You 💫</h3>
-        <p class="reason-text">With you, the missing pieces of my heart fall into place. Being by your side makes me feel whole, like I've finally found where I belong. You don't just share my life; you complete it.</p>
+        <p class="reason-text">With you, the missing pieces of my heart fall into place. Being by your side makes me
+          feel whole, like I've finally found where I belong. You don't just share my life; you complete it.</p>
       </div>
       <div class="reason-card">
         <div class="reason-num">02</div>
         <h3 class="reason-title">You Are Irreplaceable 💖</h3>
-        <p class="reason-text">In a world of billions, there is no one else like you. Your laugh, your presence, and the way you touch my life are unique. I could never find another soul that shines as bright as yours.</p>
+        <p class="reason-text">In a world of billions, there is no one else like you. Your laugh, your presence, and the
+          way you touch my life are unique. I could never find another soul that shines as bright as yours.</p>
       </div>
       <div class="reason-card">
         <div class="reason-num">03</div>
         <h3 class="reason-title">Only We Truly Understand 🔐</h3>
-        <p class="reason-text">We share a quiet world of our own, built on glances, silent understandings, and inside jokes. Nobody else sees the world the way we do, or knows the depth of what lies between us.</p>
+        <p class="reason-text">We share a quiet world of our own, built on glances, silent understandings, and inside
+          jokes. Nobody else sees the world the way we do, or knows the depth of what lies between us.</p>
       </div>
       <div class="reason-card">
         <div class="reason-num">04</div>
         <h3 class="reason-title">Your Little Moods & Pouts 🌸</h3>
-        <p class="reason-text">Even when you get angry over the smallest things, I find it incredibly endearing. Seeing you pout or cross your arms only makes me realize how precious and raw your emotions are to me.</p>
+        <p class="reason-text">Even when you get angry over the smallest things, I find it incredibly endearing. Seeing
+          you pout or cross your arms only makes me realize how precious and raw your emotions are to me.</p>
       </div>
       <div class="reason-card">
         <div class="reason-num">05</div>
         <h3 class="reason-title">We Both Need Each Other 🤝</h3>
-        <p class="reason-text">Our hearts are bound in a way that goes beyond simple affection. We are each other's strength in times of weakness, and our safe havens when the world gets loud. We simply need one another.</p>
+        <p class="reason-text">Our hearts are bound in a way that goes beyond simple affection. We are each other's
+          strength in times of weakness, and our safe havens when the world gets loud. We simply need one another.</p>
       </div>
       <div class="reason-card">
         <div class="reason-num">06</div>
         <h3 class="reason-title">You Make the Ordinary Magical ✨</h3>
-        <p class="reason-text">You have this rare gift of turning regular days and simple scooty rides into beautiful memories. Just your presence makes even the quietest moment feel like a scene from a movie.</p>
+        <p class="reason-text">You have this rare gift of turning regular days and simple scooty rides into beautiful
+          memories. Just your presence makes even the quietest moment feel like a scene from a movie.</p>
       </div>
     </div>
   </section>
@@ -1405,33 +1673,43 @@
     <div class="divider-line" style="margin: 0 auto 2.5rem;"></div>
 
     <p class="envelope-tip">Tap the golden wax seal to open Sahil's letter</p>
-    
+
     <div class="envelope-wrapper">
       <div class="envelope" id="envelope">
         <div class="envelope-flap top-flap"></div>
         <div class="envelope-flap left-flap"></div>
         <div class="envelope-flap right-flap"></div>
         <div class="envelope-flap bottom-flap"></div>
-        
+
         <div class="letter">
           <div class="close-letter" id="close-letter-btn" title="Fold Letter">✕</div>
           <div class="letter-text">
             <strong>Anushka,</strong><br><br>
-            I know things are difficult right now. I know there is pressure — real, heavy pressure — coming from places that neither of us chose. And I won't pretend that isn't hard. But I need you to know one thing clearly:<br><br>
-            I have never done anything to hurt you intentionally. What we have is clean, honest, and something I am deeply proud of.<br><br>
-            The world outside can be loud. Family expectations can feel like walls closing in. But inside this — inside us — there has always been something quiet and true. Something that doesn't come along often.<br><br>
-            I built this page because I wanted you to feel, even for a moment, how much you mean to me. Not in a rushed message. Not in a panic. But thoughtfully, the way you deserve.<br><br>
-            I'm not asking you to fight the world. I'm just asking you to not let the world take away something that is genuinely good.<br><br>
+            I know things are difficult right now. I know there is pressure — real, heavy pressure — coming from places
+            that neither of us chose. And I won't pretend that isn't hard. But I need you to know one thing
+            clearly:<br><br>
+            I have never done anything to hurt you intentionally. What we have is clean, honest, and something I am
+            deeply proud of.<br><br>
+            The world outside can be loud. Family expectations can feel like walls closing in. But inside this — inside
+            us — there has always been something quiet and true. Something that doesn't come along often.<br><br>
+            I built this page because I wanted you to feel, even for a moment, how much you mean to me. Not in a rushed
+            message. Not in a panic. But thoughtfully, the way you deserve.<br><br>
+            I'm not asking you to fight the world. I'm just asking you to not let the world take away something that is
+            genuinely good.<br><br>
             Take your time. I'll be here. I always will be.
             <div class="letter-sig">— With everything I have, Sahil 🤍</div>
           </div>
           <div class="letter-scroll-hint" id="letter-scroll-hint">Scroll down to read 🌸</div>
         </div>
-        
+
         <div class="wax-seal" id="wax-seal">
           <svg viewBox="0 0 32 32">
-            <path d="M16,28.2 C16,28.2 3,20.2 3,11.5 C3,6.2 7.2,2 12,2 C13.8,2 15,2.8 16,4 C17,2.8 18.2,2 20,2 C24.8,2 29,6.2 29,11.5 C29,20.2 16,28.2 16,28.2 Z" fill="#d4af37" />
-            <path d="M16,24 C16,24 6,17.2 6,11 C6,7 9,4 12.5,4 C14,4 15,4.7 16,5.7 C17,4.7 18,4 19.5,4 C23,4 26,7 26,11 C26,17.2 16,24 16,24 Z" fill="none" stroke="#ffffff" stroke-width="0.8" stroke-dasharray="1 1" opacity="0.65"/>
+            <path
+              d="M16,28.2 C16,28.2 3,20.2 3,11.5 C3,6.2 7.2,2 12,2 C13.8,2 15,2.8 16,4 C17,2.8 18.2,2 20,2 C24.8,2 29,6.2 29,11.5 C29,20.2 16,28.2 16,28.2 Z"
+              fill="#d4af37" />
+            <path
+              d="M16,24 C16,24 6,17.2 6,11 C6,7 9,4 12.5,4 C14,4 15,4.7 16,5.7 C17,4.7 18,4 19.5,4 C23,4 26,7 26,11 C26,17.2 16,24 16,24 Z"
+              fill="none" stroke="#ffffff" stroke-width="0.8" stroke-dasharray="1 1" opacity="0.65" />
           </svg>
         </div>
       </div>
@@ -1447,23 +1725,28 @@
     <ul class="promises-list">
       <li>
         <div class="promise-marker">✦</div>
-        <span>I promise to never make you feel alone in whatever you're facing — I will always be someone you can lean on, not someone adding to your burden.</span>
+        <span>I promise to never make you feel alone in whatever you're facing — I will always be someone you can lean
+          on, not someone adding to your burden.</span>
       </li>
       <li>
         <div class="promise-marker">✦</div>
-        <span>I promise to respect your family, your values, and your world — even when it's hard — because they are a part of you, and I love all of you.</span>
+        <span>I promise to respect your family, your values, and your world — even when it's hard — because they are a
+          part of you, and I love all of you.</span>
       </li>
       <li>
         <div class="promise-marker">✦</div>
-        <span>I promise to keep being the person who makes you smile first and worry second — because joy around you is something I take seriously.</span>
+        <span>I promise to keep being the person who makes you smile first and worry second — because joy around you is
+          something I take seriously.</span>
       </li>
       <li>
         <div class="promise-marker">✦</div>
-        <span>I promise that whatever we face together, I will face it with patience, with honesty, and with my whole heart.</span>
+        <span>I promise that whatever we face together, I will face it with patience, with honesty, and with my whole
+          heart.</span>
       </li>
       <li>
         <div class="promise-marker">✦</div>
-        <span>I promise to keep choosing you — not because I have to, but because every day, you are still my favourite choice.</span>
+        <span>I promise to keep choosing you — not because I have to, but because every day, you are still my favourite
+          choice.</span>
       </li>
     </ul>
   </section>
@@ -1474,7 +1757,8 @@
     <h2 class="section-heading">Moments I <em>treasure</em></h2>
     <div class="divider-line"></div>
     <p class="photos-note">
-      ✏️ Note: Tapping each photo lifts it closer. Replace the SVG wrappers with &lt;img src="photo.jpg"&gt; tags whenever you'd like to load real photos.
+      ✏️ Note: Tapping each photo lifts it closer. Replace the SVG wrappers with &lt;img src="photo.jpg"&gt; tags
+      whenever you'd like to load real photos.
     </p>
 
     <div class="photos-grid">
@@ -1482,16 +1766,18 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#grad1)" opacity="0.15"/>
-            <path d="M35 40h20c3 0 5 2 5 5v12c0 3-2 5-5 5H43l-8 6v-6c-3 0-5-2-5-5V45c0-3 2-5 5-5z" fill="#ff6b9d" opacity="0.8"/>
-            <path d="M65 48h-8v6c0 4.4-3.6 8-8 8h-4v4c0 3 2 5 5 5h10l8 6v-6c3 0 5-2 5-5V53c0-3-2-5-5-5z" fill="#f4d0a4" opacity="0.7"/>
-            <circle cx="38" cy="50" r="2" fill="#fff"/>
-            <circle cx="45" cy="50" r="2" fill="#fff"/>
-            <circle cx="52" cy="50" r="2" fill="#fff"/>
+            <circle cx="50" cy="50" r="45" fill="url(#grad1)" opacity="0.15" />
+            <path d="M35 40h20c3 0 5 2 5 5v12c0 3-2 5-5 5H43l-8 6v-6c-3 0-5-2-5-5V45c0-3 2-5 5-5z" fill="#ff6b9d"
+              opacity="0.8" />
+            <path d="M65 48h-8v6c0 4.4-3.6 8-8 8h-4v4c0 3 2 5 5 5h10l8 6v-6c3 0 5-2 5-5V53c0-3-2-5-5-5z" fill="#f4d0a4"
+              opacity="0.7" />
+            <circle cx="38" cy="50" r="2" fill="#fff" />
+            <circle cx="45" cy="50" r="2" fill="#fff" />
+            <circle cx="52" cy="50" r="2" fill="#fff" />
             <defs>
               <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1504,15 +1790,17 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradScooty)" opacity="0.15"/>
-            <circle cx="35" cy="62" r="7" stroke="#ff6b9d" stroke-width="2.5"/>
-            <circle cx="65" cy="62" r="7" stroke="#ff6b9d" stroke-width="2.5"/>
-            <path d="M35 62h30 M35 62l8-14h15l7 14 M58 48l4-16h-6" stroke="#f4d0a4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M24 40c4 1.5 9-1.5 14-2.5M70 36c3 1 6-1.5 9-2.5" stroke="#ff6b9d" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradScooty)" opacity="0.15" />
+            <circle cx="35" cy="62" r="7" stroke="#ff6b9d" stroke-width="2.5" />
+            <circle cx="65" cy="62" r="7" stroke="#ff6b9d" stroke-width="2.5" />
+            <path d="M35 62h30 M35 62l8-14h15l7 14 M58 48l4-16h-6" stroke="#f4d0a4" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M24 40c4 1.5 9-1.5 14-2.5M70 36c3 1 6-1.5 9-2.5" stroke="#ff6b9d" stroke-width="1.2"
+              stroke-linecap="round" opacity="0.5" />
             <defs>
               <radialGradient id="gradScooty" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1525,19 +1813,20 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradGift)" opacity="0.15"/>
-            <rect x="35" y="46" width="30" height="24" rx="2" fill="#ff6b9d" opacity="0.8"/>
-            <rect x="32" y="39" width="36" height="7" rx="1.5" fill="#f4d0a4"/>
-            <path d="M50 39v31M35 58h30" stroke="#0a0005" stroke-width="2"/>
-            <path d="M50 39c-7-7-10 0-3 0M50 39c7-7 10 0 3 0" stroke="#f4d0a4" stroke-width="2" fill="none"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradGift)" opacity="0.15" />
+            <rect x="35" y="46" width="30" height="24" rx="2" fill="#ff6b9d" opacity="0.8" />
+            <rect x="32" y="39" width="36" height="7" rx="1.5" fill="#f4d0a4" />
+            <path d="M50 39v31M35 58h30" stroke="#0a0005" stroke-width="2" />
+            <path d="M50 39c-7-7-10 0-3 0M50 39c7-7 10 0 3 0" stroke="#f4d0a4" stroke-width="2" fill="none" />
             <defs>
               <radialGradient id="gradGift" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#f4d0a4"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#f4d0a4" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
-          <img class="real-photo" src="unwrapping your smile.jpeg" alt="Unwrapping Your Smile" onerror="this.style.display='none'">
+          <img class="real-photo" src="unwrapping your smile.jpeg" alt="Unwrapping Your Smile"
+            onerror="this.style.display='none'">
         </div>
         <div class="polaroid-caption">Unwrapping Your Smile 🎁</div>
       </div>
@@ -1546,14 +1835,16 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradFood)" opacity="0.15"/>
-            <circle cx="50" cy="52" r="20" stroke="#f4d0a4" stroke-width="2.5" fill="none"/>
-            <path d="M26 38v24M26 47h4M74 38v24M74 38c2 4 2 8 0 12" stroke="#ff6b9d" stroke-width="2" stroke-linecap="round"/>
-            <path d="M46 44c0-2.5 2-4.5 2-7.5M54 44c0-2.5-2-4.5-2-7.5" stroke="#ff6b9d" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradFood)" opacity="0.15" />
+            <circle cx="50" cy="52" r="20" stroke="#f4d0a4" stroke-width="2.5" fill="none" />
+            <path d="M26 38v24M26 47h4M74 38v24M74 38c2 4 2 8 0 12" stroke="#ff6b9d" stroke-width="2"
+              stroke-linecap="round" />
+            <path d="M46 44c0-2.5 2-4.5 2-7.5M54 44c0-2.5-2-4.5-2-7.5" stroke="#ff6b9d" stroke-width="1.2"
+              stroke-linecap="round" opacity="0.6" />
             <defs>
               <radialGradient id="gradFood" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1566,15 +1857,16 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradLake)" opacity="0.15"/>
-            <circle cx="50" cy="42" r="13" fill="#f4d0a4" opacity="0.8"/>
-            <path d="M25 64c8-3.5 15-3.5 25 0s17 3.5 25 0" stroke="#ff6b9d" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M20 71c8-3.5 15-3.5 25 0s17 3.5 25 0" stroke="#ff6b9d" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-            <path d="M33 28c2-2 5 0 7 1.5M61 24c2-2 4 0 5 1" stroke="#f4d0a4" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradLake)" opacity="0.15" />
+            <circle cx="50" cy="42" r="13" fill="#f4d0a4" opacity="0.8" />
+            <path d="M25 64c8-3.5 15-3.5 25 0s17 3.5 25 0" stroke="#ff6b9d" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M20 71c8-3.5 15-3.5 25 0s17 3.5 25 0" stroke="#ff6b9d" stroke-width="1.5" stroke-linecap="round"
+              opacity="0.5" />
+            <path d="M33 28c2-2 5 0 7 1.5M61 24c2-2 4 0 5 1" stroke="#f4d0a4" stroke-width="1" stroke-linecap="round" />
             <defs>
               <radialGradient id="gradLake" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#f4d0a4"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#f4d0a4" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1587,17 +1879,18 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradRomance)" opacity="0.15"/>
-            <path d="M42 36c-5-5-13-1-13 5c0 7 13 15 13 15s13-8 13-15c0-6-8-10-13-5z" fill="#ff6b9d" opacity="0.8"/>
-            <path d="M59 48c-3-3-9-1-9 3c0 5 9 10 9 10s9-5 9-10c0-4-6-6-9-3z" fill="#f4d0a4" opacity="0.9"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradRomance)" opacity="0.15" />
+            <path d="M42 36c-5-5-13-1-13 5c0 7 13 15 13 15s13-8 13-15c0-6-8-10-13-5z" fill="#ff6b9d" opacity="0.8" />
+            <path d="M59 48c-3-3-9-1-9 3c0 5 9 10 9 10s9-5 9-10c0-4-6-6-9-3z" fill="#f4d0a4" opacity="0.9" />
             <defs>
               <radialGradient id="gradRomance" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
-          <img class="real-photo" src="wisper in hearts.jpeg" alt="Whispers of the Heart" onerror="this.style.display='none'">
+          <img class="real-photo" src="wisper in hearts.jpeg" alt="Whispers of the Heart"
+            onerror="this.style.display='none'">
         </div>
         <div class="polaroid-caption">Whispers of the Heart 💖</div>
       </div>
@@ -1606,15 +1899,16 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradUjjain)" opacity="0.15"/>
-            <path d="M50 25v46M40 38c4 4 16 4 20 0" stroke="#f4d0a4" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M43 47h14M47 30l3-5l3 5" stroke="#f4d0a4" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="50" cy="38" r="3.5" fill="#ff6b9d"/>
-            <path d="M28 32l3 2.5m34-11l3 2.5" stroke="#ff6b9d" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradUjjain)" opacity="0.15" />
+            <path d="M50 25v46M40 38c4 4 16 4 20 0" stroke="#f4d0a4" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M43 47h14M47 30l3-5l3 5" stroke="#f4d0a4" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="50" cy="38" r="3.5" fill="#ff6b9d" />
+            <path d="M28 32l3 2.5m34-11l3 2.5" stroke="#ff6b9d" stroke-width="1.2" stroke-linecap="round"
+              opacity="0.6" />
             <defs>
               <radialGradient id="gradUjjain" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#f4d0a4"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#f4d0a4" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1627,19 +1921,20 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradMyBday)" opacity="0.15"/>
-            <rect x="35" y="52" width="30" height="18" rx="2" fill="#ff6b9d" opacity="0.8"/>
-            <rect x="40" y="45" width="20" height="7" rx="1" fill="#f4d0a4"/>
-            <path d="M45 37v8M50 35v10M55 37v8" stroke="#ff6b9d" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M45 32c0 1 1 2 0 3M50 30c0 1 1 2 0 3M55 32c0 1 1 2 0 3" stroke="#f4d0a4" stroke-width="1.2"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradMyBday)" opacity="0.15" />
+            <rect x="35" y="52" width="30" height="18" rx="2" fill="#ff6b9d" opacity="0.8" />
+            <rect x="40" y="45" width="20" height="7" rx="1" fill="#f4d0a4" />
+            <path d="M45 37v8M50 35v10M55 37v8" stroke="#ff6b9d" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M45 32c0 1 1 2 0 3M50 30c0 1 1 2 0 3M55 32c0 1 1 2 0 3" stroke="#f4d0a4" stroke-width="1.2" />
             <defs>
               <radialGradient id="gradMyBday" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
-          <img class="real-photo" src="a gift named you.jpeg" alt="A Gift Named You" onerror="this.style.display='none'">
+          <img class="real-photo" src="a gift named you.jpeg" alt="A Gift Named You"
+            onerror="this.style.display='none'">
         </div>
         <div class="polaroid-caption">A Gift Named You 🎂</div>
       </div>
@@ -1648,19 +1943,21 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#grad9)" opacity="0.15"/>
-            <path d="M38 50c-8-8-18 0-10 10l10 10 10-10c8-10-2-18-10-10z" fill="#ff6b9d" opacity="0.25"/>
-            <path d="M32 50c-6-6-12 0-7 7l7 7 7-7c5-7-1-13-7-7z" fill="#ff6b9d" opacity="0.4"/>
-            <path d="M35 50c-10-10-10 10 0 0s10-10 20 0 10 10 0 0z" stroke="#f4d0a4" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
-            <circle cx="50" cy="50" r="3" fill="#ff6b9d"/>
+            <circle cx="50" cy="50" r="45" fill="url(#grad9)" opacity="0.15" />
+            <path d="M38 50c-8-8-18 0-10 10l10 10 10-10c8-10-2-18-10-10z" fill="#ff6b9d" opacity="0.25" />
+            <path d="M32 50c-6-6-12 0-7 7l7 7 7-7c5-7-1-13-7-7z" fill="#ff6b9d" opacity="0.4" />
+            <path d="M35 50c-10-10-10 10 0 0s10-10 20 0 10 10 0 0z" stroke="#f4d0a4" stroke-width="3"
+              stroke-linecap="round" opacity="0.9" />
+            <circle cx="50" cy="50" r="3" fill="#ff6b9d" />
             <defs>
               <radialGradient id="grad9" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
-          <img class="real-photo" src="written in starts.jpeg" alt="Written in the Stars" onerror="this.style.display='none'">
+          <img class="real-photo" src="written in starts.jpeg" alt="Written in the Stars"
+            onerror="this.style.display='none'">
         </div>
         <div class="polaroid-caption">Written in the Stars ♾️</div>
       </div>
@@ -1669,17 +1966,17 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradBadminton)" opacity="0.15"/>
-            <circle cx="42" cy="42" r="10" stroke="#f4d0a4" stroke-width="2"/>
-            <path d="M49 49l18 18" stroke="#f4d0a4" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="58" cy="42" r="10" stroke="#ff6b9d" stroke-width="2"/>
-            <path d="M51 49l-18 18" stroke="#ff6b9d" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M50 32l-4-8h8z" fill="#ff6b9d" opacity="0.8"/>
-            <circle cx="50" cy="34" r="2.5" fill="#f4d0a4"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradBadminton)" opacity="0.15" />
+            <circle cx="42" cy="42" r="10" stroke="#f4d0a4" stroke-width="2" />
+            <path d="M49 49l18 18" stroke="#f4d0a4" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="58" cy="42" r="10" stroke="#ff6b9d" stroke-width="2" />
+            <path d="M51 49l-18 18" stroke="#ff6b9d" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M50 32l-4-8h8z" fill="#ff6b9d" opacity="0.8" />
+            <circle cx="50" cy="34" r="2.5" fill="#f4d0a4" />
             <defs>
               <radialGradient id="gradBadminton" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1692,15 +1989,15 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradNavratri)" opacity="0.15"/>
-            <path d="M28 72l35-35" stroke="#f4d0a4" stroke-width="4.5" stroke-linecap="round"/>
-            <path d="M38 72l35-35" stroke="#ff6b9d" stroke-width="4.5" stroke-linecap="round"/>
-            <path d="M50 20l2 4l4 2l-4 2l-2 4l-2-4l-4-2l4-2z" fill="#f4d0a4"/>
-            <path d="M25 40l1 2l2 1l-2 1l-1 2l-1-2l-2-1l2-1z" fill="#ff6b9d"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradNavratri)" opacity="0.15" />
+            <path d="M28 72l35-35" stroke="#f4d0a4" stroke-width="4.5" stroke-linecap="round" />
+            <path d="M38 72l35-35" stroke="#ff6b9d" stroke-width="4.5" stroke-linecap="round" />
+            <path d="M50 20l2 4l4 2l-4 2l-2 4l-2-4l-4-2l4-2z" fill="#f4d0a4" />
+            <path d="M25 40l1 2l2 1l-2 1l-1 2l-1-2l-2-1l2-1z" fill="#ff6b9d" />
             <defs>
               <radialGradient id="gradNavratri" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1713,18 +2010,18 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradMovie)" opacity="0.15"/>
-            <path d="M35 48h30l-5 25H40z" fill="#ff6b9d" opacity="0.8"/>
-            <path d="M32 42h36v6H32z" fill="#f4d0a4"/>
-            <circle cx="45" cy="38" r="4" fill="#f4d0a4"/>
-            <circle cx="50" cy="35" r="4" fill="#f4d0a4"/>
-            <circle cx="55" cy="38" r="4" fill="#f4d0a4"/>
-            <circle cx="40" cy="40" r="3" fill="#ff6b9d"/>
-            <circle cx="60" cy="40" r="3" fill="#ff6b9d"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradMovie)" opacity="0.15" />
+            <path d="M35 48h30l-5 25H40z" fill="#ff6b9d" opacity="0.8" />
+            <path d="M32 42h36v6H32z" fill="#f4d0a4" />
+            <circle cx="45" cy="38" r="4" fill="#f4d0a4" />
+            <circle cx="50" cy="35" r="4" fill="#f4d0a4" />
+            <circle cx="55" cy="38" r="4" fill="#f4d0a4" />
+            <circle cx="40" cy="40" r="3" fill="#ff6b9d" />
+            <circle cx="60" cy="40" r="3" fill="#ff6b9d" />
             <defs>
               <radialGradient id="gradMovie" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#f4d0a4"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#f4d0a4" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1737,14 +2034,14 @@
       <div class="polaroid">
         <div class="polaroid-img-wrapper">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" fill="url(#gradTrain)" opacity="0.15"/>
-            <path d="M35 80l12-40M65 80l-12-40" stroke="#f4d0a4" stroke-width="3" stroke-linecap="round"/>
-            <path d="M36 75h28M39 65h22M42 55h16M45 45h10" stroke="#ff6b9d" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M72 30l2 4l4 2l-4 2l-2 4l-2-4l-4-2l4-2z" fill="#f4d0a4"/>
+            <circle cx="50" cy="50" r="45" fill="url(#gradTrain)" opacity="0.15" />
+            <path d="M35 80l12-40M65 80l-12-40" stroke="#f4d0a4" stroke-width="3" stroke-linecap="round" />
+            <path d="M36 75h28M39 65h22M42 55h16M45 45h10" stroke="#ff6b9d" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M72 30l2 4l4 2l-4 2l-2 4l-2-4l-4-2l4-2z" fill="#f4d0a4" />
             <defs>
               <radialGradient id="gradTrain" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#ff6b9d"/>
-                <stop offset="100%" stop-color="transparent"/>
+                <stop offset="0%" stop-color="#ff6b9d" />
+                <stop offset="100%" stop-color="transparent" />
               </radialGradient>
             </defs>
           </svg>
@@ -1768,7 +2065,9 @@
               <stop offset="100%" stop-color="#540217" />
             </radialGradient>
           </defs>
-          <path d="M50 85C47 82 15 54 15 35C15 22 25 12 37.5 12C45 12 48 16 50 20C52 16 55 12 62.5 12C75 12 85 22 85 35C85 54 53 82 50 85Z" fill="url(#heart-grad-petals)" />
+          <path
+            d="M50 85C47 82 15 54 15 35C15 22 25 12 37.5 12C45 12 48 16 50 20C52 16 55 12 62.5 12C75 12 85 22 85 35C85 54 53 82 50 85Z"
+            fill="url(#heart-grad-petals)" />
         </svg>
       </div>
       <div class="click-here-btn">click here</div>
@@ -1850,7 +2149,7 @@
         this.rotSpeedX = 0.006 + Math.random() * 0.012;
         this.rotSpeedY = 0.006 + Math.random() * 0.012;
         this.rotSpeedZ = 0.003 + Math.random() * 0.008;
-        
+
         // Hues centered around rose pinks and wine reds
         const hue = Math.random() > 0.4 ? (340 + Math.random() * 20) : (355 + Math.random() * 15);
         this.color1 = `hsl(${hue}, 90%, 55%)`;
@@ -1993,12 +2292,12 @@
     function spawnHeartsFromAllSides(count = 75) {
       const centerX = width / 2;
       const centerY = height / 2;
-      
+
       for (let i = 0; i < count; i++) {
         // Pick a random side: 0 = Top, 1 = Right, 2 = Bottom, 3 = Left
         const side = Math.floor(Math.random() * 4);
         let x, y;
-        
+
         if (side === 0) { // Top
           x = Math.random() * width;
           y = -20;
@@ -2012,23 +2311,23 @@
           x = -20;
           y = Math.random() * height;
         }
-        
+
         // Direction vector towards center
         const dx = centerX - x;
         const dy = centerY - y;
         const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-        
+
         // Speed
         const speed = 3 + Math.random() * 6;
         const vx = (dx / dist) * speed + (Math.random() - 0.5) * 1.5;
         const vy = (dy / dist) * speed + (Math.random() - 0.5) * 1.5;
-        
+
         // Create custom heart particle
         const size = 12 + Math.random() * 18;
         const color = `hsl(${340 + Math.random() * 25}, 95%, ${58 + Math.random() * 12}%)`;
         const angle = Math.random() * Math.PI * 2;
         const rotSpeed = -0.04 + Math.random() * 0.08;
-        
+
         // Push custom heart particle
         hearts.push({
           x: x,
@@ -2040,19 +2339,19 @@
           rotSpeed: rotSpeed,
           opacity: 1.0,
           color: color,
-          update: function() {
+          update: function () {
             this.x += this.speedX;
             this.y += this.speedY;
             this.angle += this.rotSpeed;
-            
+
             // Decelerate slightly as they approach the center to hover
             this.speedX *= 0.985;
             this.speedY *= 0.985;
-            
+
             // Fade out
             this.opacity -= 0.007;
           },
-          draw: function() {
+          draw: function () {
             if (this.opacity > 0) {
               drawHeart(ctx, this.x, this.y, this.size, this.size, this.color, this.angle, this.opacity);
             }
@@ -2097,13 +2396,13 @@
     const letterText = document.querySelector('.letter-text');
     const letterScrollHint = document.getElementById('letter-scroll-hint');
     const closeLetterBtn = document.getElementById('close-letter-btn');
-    
+
     envelope.addEventListener('click', (e) => {
       const isAlreadyOpen = envelope.classList.contains('open');
       if (!isAlreadyOpen) {
         envelope.classList.add('open');
         letterSection.classList.add('open');
-        
+
         // Spawn a beautiful shower of hearts from the envelope seal!
         const rect = envelope.getBoundingClientRect();
         const x = rect.left + rect.width / 2;
@@ -2133,7 +2432,7 @@
       envelope.classList.remove('open');
       letterSection.classList.remove('open');
       e.stopPropagation(); // Prevent re-triggering the envelope click
-      
+
       // Reset letter scroll state after it finishes sliding back in
       setTimeout(() => {
         letterText.scrollTop = 0;
@@ -2187,7 +2486,7 @@
     const localAudio = document.getElementById('local-audio');
     const disc = document.getElementById('music-disc');
     const statusText = document.getElementById('music-status');
-    
+
     let isPlaying = false;
     let useLocal = true; // Default to true since we have songs.mp3 locally
     let player = null;
@@ -2210,7 +2509,7 @@
     firstScript.parentNode.insertBefore(ytScript, firstScript);
 
     // Callback called by YouTube API when ready
-    window.onYouTubeIframeAPIReady = function() {
+    window.onYouTubeIframeAPIReady = function () {
       player = new YT.Player('yt-player', {
         height: '1',
         width: '1',
@@ -2328,4 +2627,5 @@
   </script>
 
 </body>
+
 </html>
