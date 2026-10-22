@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Queen Anushka ❤️ | Sahil</title>
+  <meta name="description" content="A romantic, magical birthday celebration website created with infinite love for Anushka by Sahil.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Falling Rose Petals & Starlight Background Canvas -->
+  <canvas id="canvas-backdrop"></canvas>
+
+  <!-- ==========================================================================
+       ENTRANCE GATE / CURTAIN (SURPRISE UNBOXING)
+       ========================================================================== -->
+  <div id="entrance-curtain">
+    <div class="envelope-wrapper" title="Click to open your surprise">
+      <div class="envelope-box">
+        <div class="wax-seal">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="envelope-tag">For Anushka &hearts;</div>
+      </div>
+    </div>
+    <div class="curtain-text">
+      <h1 class="curtain-title">A Special Surprise Awaits...</h1>
+      <p class="curtain-subtitle">Turn your sound on & tap the envelope to step into your birthday world ✨</p>
+      <button id="btn-open-curtain" class="btn-open-curtain">
+        <i class="fas fa-sparkles"></i> Open My Birthday World <i class="fas fa-heart"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING NAVIGATION & AUDIO CONTROLLER
+       ========================================================================== -->
+  <nav class="top-nav">
+    <ul class="nav-links">
+      <li><a href="#hero" class="active"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#cake"><i class="fas fa-birthday-cake"></i> The Cake</a></li>
+      <li><a href="#memories"><i class="fas fa-images"></i> Memories</a></li>
+      <li><a href="#letters"><i class="fas fa-envelope-open-text"></i> Letters</a></li>
+      <li><a href="#reasons"><i class="fas fa-heart"></i> Reasons</a></li>
+      <li><a href="#quiz"><i class="fas fa-star"></i> Love Quiz</a></li>
+    </ul>
+
+    <div class="audio-controls">
+      <div id="music-waves-container" class="music-waves">
+        <div class="music-wave-bar"></div>
+        <div class="music-wave-bar"></div>
+        <div class="music-wave-bar"></div>
+      </div>
+      <button id="btn-audio-toggle" class="audio-btn" title="Toggle Romantic Piano Music">
+        <i class="fas fa-music"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main class="main-wrapper">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-crown">👑</div>
+      <div class="section-badge"><i class="fas fa-sparkles"></i> Happy Birthday, My Queen</div>
+      
+      <div class="hero-name-container">
+        <div class="hero-greeting">To My Infinite Love,</div>
+        <h1 class="hero-name var-her-name">Anushka</h1>
+      </div>
+
+      <p id="hero-tagline-text" class="hero-tagline">
+        To the girl who turned my ordinary world into pure poetry. Every heartbeat is a reminder of how lucky I am to love you.
+      </p>
+
+      <div class="hero-pills">
+        <div class="pill-item"><i class="fas fa-heart"></i> My Safe Place</div>
+        <div class="pill-item"><i class="fas fa-moon"></i> My Prettiest Star</div>
+        <div class="pill-item"><i class="fas fa-gem"></i> Sahil's Forever & Always</div>
+      </div>
+
+      <!-- Live Journey / Love Counter -->
+      <div class="love-counter-box">
+        <div class="counter-label"><i class="fas fa-birthday-cake"></i> Until Anushka's Birthday 🎂</div>
+        <div class="counter-grid">
+          <div class="counter-unit">
+            <span id="count-hours" class="unit-number">00</span>
+            <span class="unit-text">Hours</span>
+          </div>
+          <div class="counter-unit">
+            <span id="count-mins" class="unit-number">00</span>
+            <span class="unit-text">Minutes</span>
+          </div>
+          <div class="counter-unit">
+            <span id="count-secs" class="unit-number">00</span>
+            <span class="unit-text">Seconds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="#cake" class="btn-primary"><i class="fas fa-birthday-cake"></i> Make A Wish, Anushka</a>
+        <a href="#memories" class="btn-secondary"><i class="fas fa-camera-retro"></i> Our Sweet Memories</a>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BIRTHDAY CAKE SECTION -->
+    <section id="cake" class="cake-section">
+      <div class="section-badge"><i class="fas fa-fire"></i> Time For Your Wish</div>
+      <h2 class="section-title">Blow The <span>Candles</span></h2>
+      <p class="section-desc">Close your eyes, make the deepest wish in your heart, and tap the candles to blow them out!</p>
+
+      <div class="cake-card">
+        <div class="cake-stage">
+          <!-- Candles on top -->
+          <div class="candles-container">
+            <div class="candle">
+              <div class="wick"></div>
+              <div class="flame" title="Tap to blow"></div>
+              <div class="smoke"></div>
+            </div>
+            <div class="candle" style="margin-top: -6px;">
+              <div class="wick"></div>
+              <div class="flame" title="Tap to blow"></div>
+              <div class="smoke"></div>
+            </div>
+            <div class="candle">
+              <div class="wick"></div>
+              <div class="flame" title="Tap to blow"></div>
+              <div class="smoke"></div>
+            </div>
+          </div>
+
+          <!-- Cake Tiers -->
+          <div class="cake-tier tier-top">
+            <div class="tier-drip"></div>
+          </div>
+          <div class="cake-tier tier-middle">
+            <div class="tier-drip"></div>
+          </div>
+          <div class="cake-tier tier-bottom">
+            <div class="tier-drip"></div>
+          </div>
+          <div class="cake-plate"></div>
+        </div>
+
+        <div class="cake-actions">
+          <button id="btn-blow-candles" class="btn-primary">
+            <i class="fas fa-wind"></i> Tap to Blow The Candles 🕯️
+          </button>
+          <button id="btn-relight-candles" class="btn-secondary" style="display: none;">
+            <i class="fas fa-fire"></i> Relight The Candles ✨
+          </button>
+        </div>
+
+        <!-- Wish Unlocked Card -->
+        <div id="wish-unlocked-card" class="wish-unlocked-card">
+          <div style="font-size: 2.2rem; margin-bottom: 6px;">🎉 🌟 🎂</div>
+          <h3>Your Wish Has Been Carried to the Stars!</h3>
+          <p>
+            "May every single dream in your beautiful heart take flight today. Sahil promises to be right beside you, holding your hand through every chapter of this new year!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLAROID MEMORY LANE SECTION -->
+    <section id="memories">
+      <div class="text-center">
+        <div class="section-badge"><i class="fas fa-camera"></i> Treasured Moments</div>
+        <h2 class="section-title">Our <span>Memory</span> Lane</h2>
+        <p class="section-desc">Snapshots of our timeless laughter, quiet whispers, and favorite days together. Click any polaroid to read the story!</p>
+      </div>
+
+            <div class="memory-grid">
+        <!-- Polaroid 1 -->
+        <div class="polaroid-card" data-memory="lakeside">
+          <div class="washi-tape"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="assets/images/lakeside_dream.jpeg" alt="Lakeside Dream">
+          </div>
+          <div class="polaroid-caption">Lakeside Dream 🌅</div>
+          <div class="polaroid-date">Our Favorite Escape</div>
+        </div>
+
+        <!-- Polaroid 2 -->
+        <div class="polaroid-card" data-memory="movie">
+          <div class="washi-tape"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="assets/images/movie.jpeg" alt="Movie Night Together">
+          </div>
+          <div class="polaroid-caption">Movie Nights 🎬</div>
+          <div class="polaroid-date">Popcorn &amp; You</div>
+        </div>
+
+        <!-- Polaroid 3 -->
+        <div class="polaroid-card" data-memory="train">
+          <div class="washi-tape"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="assets/images/train.jpeg" alt="Train Adventures">
+          </div>
+          <div class="polaroid-caption">Adventures Await 🚂</div>
+          <div class="polaroid-date">Every Journey With You</div>
+        </div>
+
+        <!-- Polaroid 4 -->
+        <div class="polaroid-card" data-memory="wisper">
+          <div class="washi-tape"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="assets/images/wisper_in_hearts.jpeg" alt="Whispers in Hearts">
+          </div>
+          <div class="polaroid-caption">Whispers in Hearts 💬</div>
+          <div class="polaroid-date">Quiet Moments</div>
+        </div>
+
+        <!-- Polaroid 5 -->
+        <div class="polaroid-card" data-memory="stars">
+          <div class="washi-tape"></div>
+          <div class="polaroid-img-wrapper">
+            <img src="assets/images/written_in_stars.jpeg" alt="Written in the Stars">
+          </div>
+          <div class="polaroid-caption">Written in Stars ⭐</div>
+          <div class="polaroid-date">Destined For Each Other</div>
+        </div>
+      </div></section>
+
+    <!-- "OPEN WHEN..." LETTERS SECTION -->
+    <section id="letters">
+      <div class="text-center">
+        <div class="section-badge"><i class="fas fa-heart"></i> Sealed With Love</div>
+        <h2 class="section-title">Open When... <span>Letters</span></h2>
+        <p class="section-desc">Whenever you need a smile, a reminder of your beauty, or a warm embrace—open one of these envelopes.</p>
+      </div>
+
+      <div class="letters-grid">
+        <div class="letter-card" data-letter="birthday">
+          <div>
+            <span class="letter-icon">🎂</span>
+            <h3 class="letter-prompt">Open on Your Birthday Midnight</h3>
+            <p class="letter-preview">To my queen on the very second her new year of life unfolds...</p>
+          </div>
+          <span class="letter-cta">Read Letter <i class="fas fa-arrow-right"></i></span>
+        </div>
+
+        <div class="letter-card" data-letter="miss_me">
+          <div>
+            <span class="letter-icon">💌</span>
+            <h3 class="letter-prompt">Open When You Miss Me Most</h3>
+            <p class="letter-preview">Whenever distance or moments make you crave my arms...</p>
+          </div>
+          <span class="letter-cta">Read Letter <i class="fas fa-arrow-right"></i></span>
+        </div>
+
+        <div class="letter-card" data-letter="beauty">
+          <div>
+            <span class="letter-icon">🪞</span>
+            <h3 class="letter-prompt">Open When You Doubt Your Beauty</h3>
+            <p class="letter-preview">For the moments you forget just how breathtaking you truly are...</p>
+          </div>
+          <span class="letter-cta">Read Letter <i class="fas fa-arrow-right"></i></span>
+        </div>
+
+        <div class="letter-card" data-letter="tough_day">
+          <div>
+            <span class="letter-icon">🌧️</span>
+            <h3 class="letter-prompt">Open After An Exhausting Day</h3>
+            <p class="letter-preview">Unclench your jaw, drop your shoulders, and let me hold you...</p>
+          </div>
+          <span class="letter-cta">Read Letter <i class="fas fa-arrow-right"></i></span>
+        </div>
+
+        <div class="letter-card" data-letter="laugh">
+          <div>
+            <span class="letter-icon">😄</span>
+            <h3 class="letter-prompt">Open When You Need A Smile</h3>
+            <p class="letter-preview">A sweet little dose of playful affection and silly memories...</p>
+          </div>
+          <span class="letter-cta">Read Letter <i class="fas fa-arrow-right"></i></span>
+        </div>
+
+        <div class="letter-card" data-letter="future">
+          <div>
+            <span class="letter-icon">🏡</span>
+            <h3 class="letter-prompt">Open When Dreaming of Tomorrow</h3>
+            <p class="letter-preview">All the cozy mornings, trips, and adventures waiting for us...</p>
+          </div>
+          <span class="letter-cta">Read Letter <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REASONS WHY I LOVE YOU DECK -->
+    <section id="reasons">
+      <div class="text-center">
+        <div class="section-badge"><i class="fas fa-sparkles"></i> Infinite Affection</div>
+        <h2 class="section-title">Reasons Why <span>I Love You</span></h2>
+        <p class="section-desc">There are thousands of reasons, but here are just a few gentle reminders of why my heart chose you.</p>
+      </div>
+
+      <div class="reasons-box">
+        <div id="love-deck-card" class="love-deck-card">
+          <div id="deck-number" class="deck-number">Reason #1 of 20</div>
+          <div id="deck-reason-text" class="deck-reason-text">
+            "The breathtaking way your eyes light up whenever you smile."
+          </div>
+        </div>
+
+        <div class="deck-controls">
+          <button id="btn-next-reason" class="btn-primary">
+            <i class="fas fa-heart"></i> Show Another Reason
+          </button>
+          <button id="btn-view-all-reasons" class="btn-secondary">
+            <i class="fas fa-list"></i> View All Reasons
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYFUL ROMANTIC LOVE QUIZ -->
+    <section id="quiz">
+      <div class="text-center">
+        <div class="section-badge"><i class="fas fa-question-circle"></i> Playful Little Test</div>
+        <h2 class="section-title">The Anushka & Sahil <span>Love Quiz</span></h2>
+        <p class="section-desc">Answer these questions to claim your official birthday certificate!</p>
+      </div>
+
+      <div class="quiz-container">
+        <!-- Interactive Question Box -->
+        <div id="quiz-question-box">
+          <div class="quiz-progress-bar">
+            <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+          </div>
+          <h3 id="quiz-q-text" class="quiz-question">1. Who fell in love first?</h3>
+          <div id="quiz-options-box" class="quiz-options"></div>
+          <div id="quiz-feedback" class="quiz-feedback"></div>
+        </div>
+
+        <!-- Certificate Box (Unlocked upon completion) -->
+        <div id="quiz-cert-box" class="certificate-box">
+          <div class="cert-stamp">🏆 📜 💖</div>
+          <div class="cert-title">Official Certificate of Absolute Perfection</div>
+          <div class="cert-recipient var-her-name">Anushka</div>
+          <p class="cert-text">
+            Awarded with 100% distinction for being the most gorgeous, affectionate, and utterly irreplaceable girlfriend in the universe. Certified for eternity by <strong>Sahil</strong>.
+          </p>
+          <button onclick="window.print()" class="btn-primary" style="margin-top: 10px;">
+            <i class="fas fa-print"></i> Save / Print Certificate
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRAND FINALE: SECRET LETTER FROM SAHIL -->
+    <section id="secret" class="secret-letter-section">
+      <div class="text-center">
+        <div class="section-badge"><i class="fas fa-key"></i> Strictly For Anushka</div>
+        <h2 class="section-title">A Secret Letter From <span>Sahil</span></h2>
+        <p class="section-desc">One last heartfelt confession waiting just for your eyes...</p>
+      </div>
+
+      <div class="lock-box">
+        <div id="lock-heart-btn" class="lock-heart-icon" title="Tap to unlock Sahil's heart">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div style="color: var(--blush); font-size: 1.1rem; font-weight: 500;">
+          Tap the glowing lock to read Sahil's personal letter ❤️
+        </div>
+
+        <!-- Revealed Letter Content -->
+        <div id="secret-revealed-content" class="secret-revealed-content">
+          <div class="parchment-header">To My Dearest Anushka,</div>
+          <div id="secret-letter-body" class="parchment-body">
+            <!-- Populated from config -->
+          </div>
+          <div class="parchment-sign">
+            Forever & Always, <br>
+            <span class="var-his-name">Sahil</span> ❤️
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       COMMON MODAL (FOR LETTERS & POLAROIDS)
+       ========================================================================== -->
+  <div id="common-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+      <h2 id="modal-title" class="modal-letter-title">Letter Title</h2>
+      <div id="modal-body" class="modal-letter-body">
+        Modal content goes here...
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SETTINGS & PERSONALIZATION DRAWER (FOR SAHIL)
+       ========================================================================== -->
+  <button id="btn-toggle-settings" class="drawer-toggle" title="Customize website details">
+    <i class="fas fa-sliders-h"></i> Personalize
+  </button>
+
+  <div id="settings-modal" class="modal-overlay">
+    <div class="settings-modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3><i class="fas fa-wand-magic-sparkles"></i> Personalize Site</h3>
+        <button id="btn-close-settings" class="modal-close-btn" style="position: static;">&times;</button>
+      </div>
+
+      <div class="settings-form-group">
+        <label>Girlfriend's Name</label>
+        <input type="text" id="cfg-her-name" value="Anushka">
+      </div>
+
+      <div class="settings-form-group">
+        <label>Your Name</label>
+        <input type="text" id="cfg-his-name" value="Sahil">
+      </div>
+
+      <div class="settings-form-group">
+        <label>Relationship / Journey Start Date</label>
+        <input type="date" id="cfg-rel-date" value="2023-04-15">
+      </div>
+
+      <div class="settings-form-group">
+        <label>Hero Tagline</label>
+        <textarea id="cfg-tagline" rows="2"></textarea>
+      </div>
+
+      <div class="settings-form-group">
+        <label>Secret Letter From Sahil</label>
+        <textarea id="cfg-letter" rows="5"></textarea>
+      </div>
+
+      <button id="btn-save-settings" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+        <i class="fas fa-save"></i> Save Changes Live
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer>
+    <div class="footer-copy">
+      Crafted with endless love for <span class="var-her-name">Anushka</span> <span class="footer-heart">❤️</span>
+    </div>
+    <div class="footer-sub">
+      Happy Birthday My Queen • Today, Tomorrow, and For All Our Lifetimes
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="audio.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
